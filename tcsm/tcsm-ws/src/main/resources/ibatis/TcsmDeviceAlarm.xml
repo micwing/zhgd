@@ -1,0 +1,691 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" 
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="com.zhhw.znh.yfb.tcsm.beans.entity.TcsmDeviceAlarmEntity">
+	<typeAlias alias="tcsmDeviceAlarmEntity" type="com.zhhw.znh.yfb.tcsm.beans.entity.TcsmDeviceAlarmEntity" />
+	<resultMap id="tcsmDeviceAlarm" class="com.zhhw.znh.yfb.tcsm.beans.entity.TcsmDeviceAlarmEntity">
+		<result property="id" column="ID" />
+		<result property="sendcompany" column="SENDCOMPANY" />
+		<result property="acceptcompany" column="ACCEPTCOMPANY" />
+		<result property="operationType" column="OPERATION_TYPE" />
+		<result property="appType" column="APP_TYPE" />
+		<result property="craneno" column="CRANENO" />
+		<result property="card" column="CARD" />
+		<result property="geocoordinatey" column="GEOCOORDINATEY" />
+		<result property="geocoordinatex" column="GEOCOORDINATEX" />
+		<result property="height" column="HEIGHT" />
+		<result property="amplitude" column="AMPLITUDE" />
+		<result property="rotary" column="ROTARY" />
+		<result property="heavy" column="HEAVY" />
+		<result property="windspeed" column="WINDSPEED" />
+		<result property="anglex" column="ANGLEX" />
+		<result property="angley" column="ANGLEY" />
+		<result property="safetorque" column="SAFETORQUE" />
+		<result property="safeweight" column="SAFEWEIGHT" />
+		<result property="currentrate" column="CURRENTRATE" />
+		<result property="reserve" column="RESERVE" />
+		<result property="powerstatuDesc" column="POWERSTATU_DESC" />
+		<result property="sensorstatusDesc" column="SENSORSTATUS_DESC" />
+		<result property="warntypeDesc" column="WARNTYPE_DESC" />
+		<result property="alertflagDesc" column="ALERTFLAG_DESC" />
+		<result property="projectId" column="PROJECT_ID" />
+		<result property="alarmTime" column="ALARM_TIME" />
+		<result property="alarmHandlerPerson" column="ALARM_HANDLER_PERSON" />
+		<result property="alarmHandlerPhone" column="ALARM_HANDLER_PHONE" />
+		<result property="alarmHandlerTime" column="ALARM_HANDLER_TIME" />
+		<result property="alarmHandlerType" column="ALARM_HANDLER_TYPE" />
+		<result property="alarmHandlerDesc" column="ALARM_HANDLER_DESC" />
+		<result property="remark" column="REMARK" />
+		<result property="createUserId" column="CREATE_USER_ID" />
+		<result property="createUserName" column="CREATE_USER_NAME" />
+		<result property="createTime" column="CREATE_TIME" />
+		<result property="createIp" column="CREATE_IP" />
+		<result property="modifyUserId" column="MODIFY_USER_ID" />
+		<result property="modifyUserName" column="MODIFY_USER_NAME" />
+		<result property="modifyTime" column="MODIFY_TIME" />
+		<result property="modifyIp" column="MODIFY_IP" />
+		<result property="version" column="VERSION" />
+		<result property="efficient" column="EFFICIENT" />
+		<result property="warntypeSize" column="WARNTYPE_SIZE" />
+		<result property="alertflagSize" column="ALERTFLAG_SIZE" />
+	</resultMap>
+
+	<!-- 用于select查询公用抽取的列 -->
+	<sql id="tcsmDeviceAlarm.columns">
+		<![CDATA[
+		ID, SENDCOMPANY, ACCEPTCOMPANY, OPERATION_TYPE, APP_TYPE, CRANENO, CARD, GEOCOORDINATEY, GEOCOORDINATEX, HEIGHT, AMPLITUDE, ROTARY, HEAVY, WINDSPEED, ANGLEX, ANGLEY, SAFETORQUE, SAFEWEIGHT, CURRENTRATE, RESERVE, POWERSTATU_DESC, SENSORSTATUS_DESC, WARNTYPE_DESC, ALERTFLAG_DESC, PROJECT_ID, ALARM_TIME, ALARM_HANDLER_PERSON, ALARM_HANDLER_PHONE, ALARM_HANDLER_TIME, ALARM_HANDLER_TYPE, ALARM_HANDLER_DESC, REMARK, CREATE_USER_ID, CREATE_USER_NAME, CREATE_TIME, CREATE_IP, MODIFY_USER_ID, MODIFY_USER_NAME, MODIFY_TIME, MODIFY_IP, VERSION, EFFICIENT, WARNTYPE_SIZE, ALERTFLAG_SIZE
+		]]>
+	</sql>
+
+	<!-- 新增记录 -->
+	<insert id="save" parameterClass="tcsmDeviceAlarmEntity">
+		<![CDATA[
+			INSERT INTO TCSM_DEVICE_ALARM (
+				ID, 
+				SENDCOMPANY, 
+				ACCEPTCOMPANY, 
+				OPERATION_TYPE, 
+				APP_TYPE, 
+				CRANENO, 
+				CARD, 
+				GEOCOORDINATEY, 
+				GEOCOORDINATEX, 
+				HEIGHT, 
+				AMPLITUDE, 
+				ROTARY, 
+				HEAVY, 
+				WINDSPEED, 
+				ANGLEX, 
+				ANGLEY, 
+				SAFETORQUE, 
+				SAFEWEIGHT, 
+				CURRENTRATE, 
+				RESERVE, 
+				POWERSTATU_DESC, 
+				SENSORSTATUS_DESC, 
+				WARNTYPE_DESC, 
+				ALERTFLAG_DESC, 
+				PROJECT_ID, 
+				ALARM_TIME, 
+				ALARM_HANDLER_PERSON, 
+				ALARM_HANDLER_PHONE, 
+				ALARM_HANDLER_TIME, 
+				ALARM_HANDLER_TYPE, 
+				ALARM_HANDLER_DESC, 
+				REMARK, 
+				CREATE_USER_ID, 
+				CREATE_USER_NAME, 
+				CREATE_TIME, 
+				CREATE_IP, 
+				MODIFY_USER_ID, 
+				MODIFY_USER_NAME, 
+				MODIFY_TIME, 
+				MODIFY_IP, 
+				VERSION, 
+				EFFICIENT, 
+				WARNTYPE_SIZE, 
+				ALERTFLAG_SIZE
+			) VALUES (
+				#id#, 
+				#sendcompany#, 
+				#acceptcompany#, 
+				#operationType#, 
+				#appType#, 
+				#craneno#, 
+				#card#, 
+				#geocoordinatey#, 
+				#geocoordinatex#, 
+				#height#, 
+				#amplitude#, 
+				#rotary#, 
+				#heavy#, 
+				#windspeed#, 
+				#anglex#, 
+				#angley#, 
+				#safetorque#, 
+				#safeweight#, 
+				#currentrate#, 
+				#reserve#, 
+				#powerstatuDesc#, 
+				#sensorstatusDesc#, 
+				#warntypeDesc#, 
+				#alertflagDesc#, 
+				#projectId#, 
+				#alarmTime#, 
+				#alarmHandlerPerson#, 
+				#alarmHandlerPhone#, 
+				#alarmHandlerTime#, 
+				#alarmHandlerType#, 
+				#alarmHandlerDesc#, 
+				#remark#, 
+				#createUserId#, 
+				#createUserName#, 
+				#createTime#, 
+				#createIp#, 
+				#modifyUserId#, 
+				#modifyUserName#, 
+				#modifyTime#, 
+				#modifyIp#, 
+				#version#, 
+				#efficient#, 
+				#warntypeSize#, 
+				#alertflagSize#
+			)
+		]]>
+	</insert>
+
+	<!-- 新增记录 -->
+	<insert id="insert" parameterClass="tcsmDeviceAlarmEntity">
+		<![CDATA[
+			INSERT INTO TCSM_DEVICE_ALARM (
+				ID, 
+				SENDCOMPANY, 
+				ACCEPTCOMPANY, 
+				OPERATION_TYPE, 
+				APP_TYPE, 
+				CRANENO, 
+				CARD, 
+				GEOCOORDINATEY, 
+				GEOCOORDINATEX, 
+				HEIGHT, 
+				AMPLITUDE, 
+				ROTARY, 
+				HEAVY, 
+				WINDSPEED, 
+				ANGLEX, 
+				ANGLEY, 
+				SAFETORQUE, 
+				SAFEWEIGHT, 
+				CURRENTRATE, 
+				RESERVE, 
+				POWERSTATU_DESC, 
+				SENSORSTATUS_DESC, 
+				WARNTYPE_DESC, 
+				ALERTFLAG_DESC, 
+				PROJECT_ID, 
+				ALARM_TIME, 
+				ALARM_HANDLER_PERSON, 
+				ALARM_HANDLER_PHONE, 
+				ALARM_HANDLER_TIME, 
+				ALARM_HANDLER_TYPE, 
+				ALARM_HANDLER_DESC, 
+				REMARK, 
+				CREATE_USER_ID, 
+				CREATE_USER_NAME, 
+				CREATE_TIME, 
+				CREATE_IP, 
+				MODIFY_USER_ID, 
+				MODIFY_USER_NAME, 
+				MODIFY_TIME, 
+				MODIFY_IP, 
+				VERSION, 
+				EFFICIENT, 
+				WARNTYPE_SIZE, 
+				ALERTFLAG_SIZE
+			) VALUES (
+				#id#, 
+				#sendcompany#, 
+				#acceptcompany#, 
+				#operationType#, 
+				#appType#, 
+				#craneno#, 
+				#card#, 
+				#geocoordinatey#, 
+				#geocoordinatex#, 
+				#height#, 
+				#amplitude#, 
+				#rotary#, 
+				#heavy#, 
+				#windspeed#, 
+				#anglex#, 
+				#angley#, 
+				#safetorque#, 
+				#safeweight#, 
+				#currentrate#, 
+				#reserve#, 
+				#powerstatuDesc#, 
+				#sensorstatusDesc#, 
+				#warntypeDesc#, 
+				#alertflagDesc#, 
+				#projectId#, 
+				#alarmTime#, 
+				#alarmHandlerPerson#, 
+				#alarmHandlerPhone#, 
+				#alarmHandlerTime#, 
+				#alarmHandlerType#, 
+				#alarmHandlerDesc#, 
+				#remark#, 
+				#createUserId#, 
+				#createUserName#, 
+				#createTime#, 
+				#createIp#, 
+				#modifyUserId#, 
+				#modifyUserName#, 
+				#modifyTime#, 
+				#modifyIp#, 
+				#version#, 
+				#efficient#, 
+				#warntypeSize#, 
+				#alertflagSize#
+			)
+		]]>
+	</insert>
+
+	<!-- 通过ID修改 -->
+	<update id="update" parameterClass="tcsmDeviceAlarmEntity">
+		<![CDATA[
+			UPDATE TCSM_DEVICE_ALARM SET
+				SENDCOMPANY = #sendcompany#, 
+				ACCEPTCOMPANY = #acceptcompany#, 
+				OPERATION_TYPE = #operationType#, 
+				APP_TYPE = #appType#, 
+				CRANENO = #craneno#, 
+				CARD = #card#, 
+				GEOCOORDINATEY = #geocoordinatey#, 
+				GEOCOORDINATEX = #geocoordinatex#, 
+				HEIGHT = #height#, 
+				AMPLITUDE = #amplitude#, 
+				ROTARY = #rotary#, 
+				HEAVY = #heavy#, 
+				WINDSPEED = #windspeed#, 
+				ANGLEX = #anglex#, 
+				ANGLEY = #angley#, 
+				SAFETORQUE = #safetorque#, 
+				SAFEWEIGHT = #safeweight#, 
+				CURRENTRATE = #currentrate#, 
+				RESERVE = #reserve#, 
+				POWERSTATU_DESC = #powerstatuDesc#, 
+				SENSORSTATUS_DESC = #sensorstatusDesc#, 
+				WARNTYPE_DESC = #warntypeDesc#, 
+				ALERTFLAG_DESC = #alertflagDesc#, 
+				PROJECT_ID = #projectId#, 
+				ALARM_TIME = #alarmTime#, 
+				ALARM_HANDLER_PERSON = #alarmHandlerPerson#, 
+				ALARM_HANDLER_PHONE = #alarmHandlerPhone#, 
+				ALARM_HANDLER_TIME = #alarmHandlerTime#, 
+				ALARM_HANDLER_TYPE = #alarmHandlerType#, 
+				ALARM_HANDLER_DESC = #alarmHandlerDesc#, 
+				REMARK = #remark#, 
+				MODIFY_USER_ID = #modifyUserId#, 
+				MODIFY_USER_NAME = #modifyUserName#, 
+				MODIFY_TIME = #modifyTime#, 
+				MODIFY_IP = #modifyIp#, 
+				VERSION = #version#, 
+				EFFICIENT = #efficient#, 
+				WARNTYPE_SIZE = #warntypeSize#, 
+				ALERTFLAG_SIZE = #alertflagSize#
+			WHERE 
+				ID = #id#
+		]]>
+	</update>
+
+	<!-- 通过ID删除 -->
+	<delete id="delete">
+		<![CDATA[
+			DELETE FROM TCSM_DEVICE_ALARM WHERE
+			ID = #id#
+		]]>
+	</delete>
+
+	<!-- 通过ID列表批量删除 -->
+	<delete id="deleteByIds" parameterClass="java.lang.String">
+		<![CDATA[
+			DELETE FROM TCSM_DEVICE_ALARM WHERE
+			ID IN ($ids$)
+		]]>
+	</delete>
+
+	<!-- 通过ID查询 -->
+	<select id="getById" resultMap="tcsmDeviceAlarm">
+		SELECT
+		<include refid="tcsmDeviceAlarm.columns" />
+		<![CDATA[
+			FROM TCSM_DEVICE_ALARM 
+			WHERE 
+				ID = #id#
+		]]>
+	</select>
+
+	<!-- 用于查询抽取的公共的条件 -->
+	<sql id="tcsmDeviceAlarm.queryParams">
+		<dynamic prepend="WHERE">
+			<isNotNull property="searchFilters">
+				<isNotEmpty prepend="AND"
+					property="searchFilters.id">
+					<![CDATA[
+					ID $searchFilters.id.operation$ #searchFilters.id.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.sendcompany">
+					<![CDATA[
+					SENDCOMPANY $searchFilters.sendcompany.operation$ #searchFilters.sendcompany.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.acceptcompany">
+					<![CDATA[
+					ACCEPTCOMPANY $searchFilters.acceptcompany.operation$ #searchFilters.acceptcompany.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.operationType">
+					<![CDATA[
+					OPERATION_TYPE $searchFilters.operationType.operation$ #searchFilters.operationType.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.appType">
+					<![CDATA[
+					APP_TYPE $searchFilters.appType.operation$ #searchFilters.appType.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.craneno">
+					<![CDATA[
+					CRANENO $searchFilters.craneno.operation$ #searchFilters.craneno.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.card">
+					<![CDATA[
+					CARD $searchFilters.card.operation$ #searchFilters.card.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.geocoordinatey">
+					<![CDATA[
+					GEOCOORDINATEY $searchFilters.geocoordinatey.operation$ #searchFilters.geocoordinatey.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.geocoordinatex">
+					<![CDATA[
+					GEOCOORDINATEX $searchFilters.geocoordinatex.operation$ #searchFilters.geocoordinatex.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.height">
+					<![CDATA[
+					HEIGHT $searchFilters.height.operation$ #searchFilters.height.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.amplitude">
+					<![CDATA[
+					AMPLITUDE $searchFilters.amplitude.operation$ #searchFilters.amplitude.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.rotary">
+					<![CDATA[
+					ROTARY $searchFilters.rotary.operation$ #searchFilters.rotary.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.heavy">
+					<![CDATA[
+					HEAVY $searchFilters.heavy.operation$ #searchFilters.heavy.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.windspeed">
+					<![CDATA[
+					WINDSPEED $searchFilters.windspeed.operation$ #searchFilters.windspeed.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.anglex">
+					<![CDATA[
+					ANGLEX $searchFilters.anglex.operation$ #searchFilters.anglex.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.angley">
+					<![CDATA[
+					ANGLEY $searchFilters.angley.operation$ #searchFilters.angley.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.safetorque">
+					<![CDATA[
+					SAFETORQUE $searchFilters.safetorque.operation$ #searchFilters.safetorque.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.safeweight">
+					<![CDATA[
+					SAFEWEIGHT $searchFilters.safeweight.operation$ #searchFilters.safeweight.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.currentrate">
+					<![CDATA[
+					CURRENTRATE $searchFilters.currentrate.operation$ #searchFilters.currentrate.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.reserve">
+					<![CDATA[
+					RESERVE $searchFilters.reserve.operation$ #searchFilters.reserve.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.powerstatuDesc">
+					<![CDATA[
+					POWERSTATU_DESC $searchFilters.powerstatuDesc.operation$ #searchFilters.powerstatuDesc.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.sensorstatusDesc">
+					<![CDATA[
+					SENSORSTATUS_DESC $searchFilters.sensorstatusDesc.operation$ #searchFilters.sensorstatusDesc.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.warntypeDesc">
+					<![CDATA[
+					WARNTYPE_DESC $searchFilters.warntypeDesc.operation$ #searchFilters.warntypeDesc.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.alertflagDesc">
+					<![CDATA[
+					ALERTFLAG_DESC $searchFilters.alertflagDesc.operation$ #searchFilters.alertflagDesc.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.projectId">
+					<![CDATA[
+					PROJECT_ID $searchFilters.projectId.operation$ #searchFilters.projectId.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.alarmTime">
+					<![CDATA[
+					ALARM_TIME $searchFilters.alarmTime.operation$ TO_DATE(#searchFilters.alarmTime.value#, 'yyyy-mm-dd hh24:mi:ss')
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.beginAlarmTime">
+					<![CDATA[
+					ALARM_TIME $searchFilters.beginAlarmTime.operation$ TO_DATE(#searchFilters.beginAlarmTime.value#, 'yyyy-mm-dd hh24:mi:ss')
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.endAlarmTime">
+					<![CDATA[
+					ALARM_TIME $searchFilters.endAlarmTime.operation$ TO_DATE(#searchFilters.endAlarmTime.value#, 'yyyy-mm-dd hh24:mi:ss')
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.alarmHandlerPerson">
+					<![CDATA[
+					ALARM_HANDLER_PERSON $searchFilters.alarmHandlerPerson.operation$ #searchFilters.alarmHandlerPerson.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.alarmHandlerPhone">
+					<![CDATA[
+					ALARM_HANDLER_PHONE $searchFilters.alarmHandlerPhone.operation$ #searchFilters.alarmHandlerPhone.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.alarmHandlerTime">
+					<![CDATA[
+					ALARM_HANDLER_TIME $searchFilters.alarmHandlerTime.operation$ TO_DATE(#searchFilters.alarmHandlerTime.value#, 'yyyy-mm-dd hh24:mi:ss')
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.beginAlarmHandlerTime">
+					<![CDATA[
+					ALARM_HANDLER_TIME $searchFilters.beginAlarmHandlerTime.operation$ TO_DATE(#searchFilters.beginAlarmHandlerTime.value#, 'yyyy-mm-dd hh24:mi:ss')
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.endAlarmHandlerTime">
+					<![CDATA[
+					ALARM_HANDLER_TIME $searchFilters.endAlarmHandlerTime.operation$ TO_DATE(#searchFilters.endAlarmHandlerTime.value#, 'yyyy-mm-dd hh24:mi:ss')
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.alarmHandlerType">
+					<![CDATA[
+					ALARM_HANDLER_TYPE $searchFilters.alarmHandlerType.operation$ #searchFilters.alarmHandlerType.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.alarmHandlerDesc">
+					<![CDATA[
+					ALARM_HANDLER_DESC $searchFilters.alarmHandlerDesc.operation$ #searchFilters.alarmHandlerDesc.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.remark">
+					<![CDATA[
+					REMARK $searchFilters.remark.operation$ #searchFilters.remark.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.createUserId">
+					<![CDATA[
+					CREATE_USER_ID $searchFilters.createUserId.operation$ #searchFilters.createUserId.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.createUserName">
+					<![CDATA[
+					CREATE_USER_NAME $searchFilters.createUserName.operation$ #searchFilters.createUserName.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.createTime">
+					<![CDATA[
+					CREATE_TIME $searchFilters.createTime.operation$ TO_DATE(#searchFilters.createTime.value#, 'yyyy-mm-dd hh24:mi:ss')
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.beginCreateTime">
+					<![CDATA[
+					CREATE_TIME $searchFilters.beginCreateTime.operation$ TO_DATE(#searchFilters.beginCreateTime.value#, 'yyyy-mm-dd hh24:mi:ss')
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.endCreateTime">
+					<![CDATA[
+					CREATE_TIME $searchFilters.endCreateTime.operation$ TO_DATE(#searchFilters.endCreateTime.value#, 'yyyy-mm-dd hh24:mi:ss')
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.createIp">
+					<![CDATA[
+					CREATE_IP $searchFilters.createIp.operation$ #searchFilters.createIp.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.modifyUserId">
+					<![CDATA[
+					MODIFY_USER_ID $searchFilters.modifyUserId.operation$ #searchFilters.modifyUserId.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.modifyUserName">
+					<![CDATA[
+					MODIFY_USER_NAME $searchFilters.modifyUserName.operation$ #searchFilters.modifyUserName.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.modifyTime">
+					<![CDATA[
+					MODIFY_TIME $searchFilters.modifyTime.operation$ TO_DATE(#searchFilters.modifyTime.value#, 'yyyy-mm-dd hh24:mi:ss')
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.beginModifyTime">
+					<![CDATA[
+					MODIFY_TIME $searchFilters.beginModifyTime.operation$ TO_DATE(#searchFilters.beginModifyTime.value#, 'yyyy-mm-dd hh24:mi:ss')
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.endModifyTime">
+					<![CDATA[
+					MODIFY_TIME $searchFilters.endModifyTime.operation$ TO_DATE(#searchFilters.endModifyTime.value#, 'yyyy-mm-dd hh24:mi:ss')
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.modifyIp">
+					<![CDATA[
+					MODIFY_IP $searchFilters.modifyIp.operation$ #searchFilters.modifyIp.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.version">
+					<![CDATA[
+					VERSION $searchFilters.version.operation$ #searchFilters.version.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.efficient">
+					<![CDATA[
+					EFFICIENT $searchFilters.efficient.operation$ #searchFilters.efficient.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.warntypeSize">
+					<![CDATA[
+					WARNTYPE_SIZE $searchFilters.warntypeSize.operation$ #searchFilters.warntypeSize.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.alertflagSize">
+					<![CDATA[
+					ALERTFLAG_SIZE $searchFilters.alertflagSize.operation$ #searchFilters.alertflagSize.value#
+					]]>
+				</isNotEmpty>
+			</isNotNull>
+		</dynamic>
+		<dynamic prepend="ORDER BY">
+			<isNotNull property="orderColumn">
+				<![CDATA[
+				$orderColumn$
+				]]>
+				<isNotNull property="orderMode">
+					$orderMode$
+				</isNotNull>
+			</isNotNull>
+		</dynamic>
+	</sql>
+
+	<!-- 为分页查询符合条件的记录数 -->
+	<select id="queryByPage_count" resultClass="int">
+		SELECT count(*) FROM TCSM_DEVICE_ALARM
+		<include refid="tcsmDeviceAlarm.queryParams" />
+	</select>
+
+	<!-- 分页查询指定页记录 -->
+	<select id="queryByPage" resultMap="tcsmDeviceAlarm">
+		SELECT * FROM (
+		SELECT ROWNUM RN, T.* FROM (
+		SELECT
+		<include refid="tcsmDeviceAlarm.columns" />
+		<![CDATA[
+			FROM TCSM_DEVICE_ALARM 
+		]]>
+		<include refid="tcsmDeviceAlarm.queryParams" />
+		) T ) WHERE
+		<![CDATA[
+			RN > $paging.startRecord$ AND RN <= $paging.startRecord$ + $paging.pageSize$
+		]]>
+	</select>
+
+	<!-- 查询所有记录 -->
+	<select id="queryAll" resultMap="tcsmDeviceAlarm">
+		SELECT
+		<include refid="tcsmDeviceAlarm.columns" />
+		<![CDATA[
+			FROM TCSM_DEVICE_ALARM
+		]]>
+		<include refid="tcsmDeviceAlarm.queryParams" />
+	</select>
+</sqlMap>

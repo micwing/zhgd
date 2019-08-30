@@ -1,0 +1,899 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" 
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="com.zhhw.znh.yfb.tcsm.beans.entity.TcsmSnapParamEntity">
+	<typeAlias alias="tcsmSnapParamEntity" type="com.zhhw.znh.yfb.tcsm.beans.entity.TcsmSnapParamEntity" />
+	<resultMap id="tcsmSnapParam" class="com.zhhw.znh.yfb.tcsm.beans.entity.TcsmSnapParamEntity">
+		<result property="id" column="ID" />
+		<result property="sendcompany" column="SENDCOMPANY" />
+		<result property="acceptcompany" column="ACCEPTCOMPANY" />
+		<result property="operationType" column="OPERATION_TYPE" />
+		<result property="appType" column="APP_TYPE" />
+		<result property="craneno" column="CRANENO" />
+		<result property="year" column="YEAR" />
+		<result property="mouth" column="MOUTH" />
+		<result property="day" column="DAY" />
+		<result property="hour" column="HOUR" />
+		<result property="minute" column="MINUTE" />
+		<result property="second" column="SECOND" />
+		<result property="ratio" column="RATIO" />
+		<result property="minhighad" column="MINHIGHAD" />
+		<result property="maxhighad" column="MAXHIGHAD" />
+		<result property="standardscale" column="STANDARDSCALE" />
+		<result property="minamplitude" column="MINAMPLITUDE" />
+		<result property="minamplitudead" column="MINAMPLITUDEAD" />
+		<result property="maxamplitude" column="MAXAMPLITUDE" />
+		<result property="maxamplitudead" column="MAXAMPLITUDEAD" />
+		<result property="emptyhookad" column="EMPTYHOOKAD" />
+		<result property="loadweightad" column="LOADWEIGHTAD" />
+		<result property="farmarweight" column="FARMARWEIGHT" />
+		<result property="rotarytype" column="ROTARYTYPE" />
+		<result property="absturndirection" column="ABSTURNDIRECTION" />
+		<result property="absturnvalue" column="ABSTURNVALUE" />
+		<result property="absturnpointvalue" column="ABSTURNPOINTVALUE" />
+		<result property="potleftlimitad" column="POTLEFTLIMITAD" />
+		<result property="potrightlimitad" column="POTRIGHTLIMITAD" />
+		<result property="potlimitangle" column="POTLIMITANGLE" />
+		<result property="liftweight4ratio" column="LIFTWEIGHT4RATIO" />
+		<result property="liftweightrange4r" column="LIFTWEIGHTRANGE4R" />
+		<result property="maxrange4ratio" column="MAXRANGE4RATIO" />
+		<result property="maxrangeweight4r" column="MAXRANGEWEIGHT4R" />
+		<result property="liftweight2ratio" column="LIFTWEIGHT2RATIO" />
+		<result property="maxweightrange2r" column="MAXWEIGHTRANGE2R" />
+		<result property="maxrange2ratio" column="MAXRANGE2RATIO" />
+		<result property="maxrangeweight2r" column="MAXRANGEWEIGHT2R" />
+		<result property="zigbeelocalno" column="ZIGBEELOCALNO" />
+		<result property="zigbeechannelno" column="ZIGBEECHANNELNO" />
+		<result property="zigbeegroupno" column="ZIGBEEGROUPNO" />
+		<result property="anticollisionx" column="ANTICOLLISIONX" />
+		<result property="anticollisiony" column="ANTICOLLISIONY" />
+		<result property="liftweightarmlenght" column="LIFTWEIGHTARMLENGHT" />
+		<result property="balancearmlenght" column="BALANCEARMLENGHT" />
+		<result property="towerheight" column="TOWERHEIGHT" />
+		<result property="toweratheight" column="TOWERATHEIGHT" />
+		<result property="ampreductionvalue" column="AMPREDUCTIONVALUE" />
+		<result property="amprestrictvalue" column="AMPRESTRICTVALUE" />
+		<result property="highreductionvalue" column="HIGHREDUCTIONVALUE" />
+		<result property="highrestrictvalue" column="HIGHRESTRICTVALUE" />
+		<result property="turnreducionvalue" column="TURNREDUCIONVALUE" />
+		<result property="turnrestrictvalue" column="TURNRESTRICTVALUE" />
+		<result property="areareductionvalue" column="AREAREDUCTIONVALUE" />
+		<result property="arearestrictvalue" column="AREARESTRICTVALUE" />
+		<result property="acreductionvalue" column="ACREDUCTIONVALUE" />
+		<result property="acrestrictvalue" column="ACRESTRICTVALUE" />
+		<result property="throwovertorque" column="THROWOVERTORQUE" />
+		<result property="cuttorque" column="CUTTORQUE" />
+		<result property="throwoverweight" column="THROWOVERWEIGHT" />
+		<result property="cutweight" column="CUTWEIGHT" />
+		<result property="softversion" column="SOFTVERSION" />
+		<result property="createTime" column="CREATE_TIME" />
+		<result property="projectId" column="PROJECT_ID" />
+	</resultMap>
+
+	<!-- 用于select查询公用抽取的列 -->
+	<sql id="tcsmSnapParam.columns">
+		<![CDATA[
+		ID, SENDCOMPANY, ACCEPTCOMPANY, OPERATION_TYPE, APP_TYPE, CRANENO, YEAR, MOUTH, DAY, HOUR, MINUTE, SECOND, RATIO, MINHIGHAD, MAXHIGHAD, STANDARDSCALE, MINAMPLITUDE, MINAMPLITUDEAD, MAXAMPLITUDE, MAXAMPLITUDEAD, EMPTYHOOKAD, LOADWEIGHTAD, FARMARWEIGHT, ROTARYTYPE, ABSTURNDIRECTION, ABSTURNVALUE, ABSTURNPOINTVALUE, POTLEFTLIMITAD, POTRIGHTLIMITAD, POTLIMITANGLE, LIFTWEIGHT4RATIO, LIFTWEIGHTRANGE4R, MAXRANGE4RATIO, MAXRANGEWEIGHT4R, LIFTWEIGHT2RATIO, MAXWEIGHTRANGE2R, MAXRANGE2RATIO, MAXRANGEWEIGHT2R, ZIGBEELOCALNO, ZIGBEECHANNELNO, ZIGBEEGROUPNO, ANTICOLLISIONX, ANTICOLLISIONY, LIFTWEIGHTARMLENGHT, BALANCEARMLENGHT, TOWERHEIGHT, TOWERATHEIGHT, AMPREDUCTIONVALUE, AMPRESTRICTVALUE, HIGHREDUCTIONVALUE, HIGHRESTRICTVALUE, TURNREDUCIONVALUE, TURNRESTRICTVALUE, AREAREDUCTIONVALUE, AREARESTRICTVALUE, ACREDUCTIONVALUE, ACRESTRICTVALUE, THROWOVERTORQUE, CUTTORQUE, THROWOVERWEIGHT, CUTWEIGHT, SOFTVERSION, CREATE_TIME, PROJECT_ID
+		]]>
+	</sql>
+
+	<!-- 新增记录 -->
+	<insert id="save" parameterClass="tcsmSnapParamEntity">
+		<![CDATA[
+			INSERT INTO TCSM_SNAP_PARAM (
+				ID, 
+				SENDCOMPANY, 
+				ACCEPTCOMPANY, 
+				OPERATION_TYPE, 
+				APP_TYPE, 
+				CRANENO, 
+				YEAR, 
+				MOUTH, 
+				DAY, 
+				HOUR, 
+				MINUTE, 
+				SECOND, 
+				RATIO, 
+				MINHIGHAD, 
+				MAXHIGHAD, 
+				STANDARDSCALE, 
+				MINAMPLITUDE, 
+				MINAMPLITUDEAD, 
+				MAXAMPLITUDE, 
+				MAXAMPLITUDEAD, 
+				EMPTYHOOKAD, 
+				LOADWEIGHTAD, 
+				FARMARWEIGHT, 
+				ROTARYTYPE, 
+				ABSTURNDIRECTION, 
+				ABSTURNVALUE, 
+				ABSTURNPOINTVALUE, 
+				POTLEFTLIMITAD, 
+				POTRIGHTLIMITAD, 
+				POTLIMITANGLE, 
+				LIFTWEIGHT4RATIO, 
+				LIFTWEIGHTRANGE4R, 
+				MAXRANGE4RATIO, 
+				MAXRANGEWEIGHT4R, 
+				LIFTWEIGHT2RATIO, 
+				MAXWEIGHTRANGE2R, 
+				MAXRANGE2RATIO, 
+				MAXRANGEWEIGHT2R, 
+				ZIGBEELOCALNO, 
+				ZIGBEECHANNELNO, 
+				ZIGBEEGROUPNO, 
+				ANTICOLLISIONX, 
+				ANTICOLLISIONY, 
+				LIFTWEIGHTARMLENGHT, 
+				BALANCEARMLENGHT, 
+				TOWERHEIGHT, 
+				TOWERATHEIGHT, 
+				AMPREDUCTIONVALUE, 
+				AMPRESTRICTVALUE, 
+				HIGHREDUCTIONVALUE, 
+				HIGHRESTRICTVALUE, 
+				TURNREDUCIONVALUE, 
+				TURNRESTRICTVALUE, 
+				AREAREDUCTIONVALUE, 
+				AREARESTRICTVALUE, 
+				ACREDUCTIONVALUE, 
+				ACRESTRICTVALUE, 
+				THROWOVERTORQUE, 
+				CUTTORQUE, 
+				THROWOVERWEIGHT, 
+				CUTWEIGHT, 
+				SOFTVERSION, 
+				CREATE_TIME, 
+				PROJECT_ID
+			) VALUES (
+				#id#, 
+				#sendcompany#, 
+				#acceptcompany#, 
+				#operationType#, 
+				#appType#, 
+				#craneno#, 
+				#year#, 
+				#mouth#, 
+				#day#, 
+				#hour#, 
+				#minute#, 
+				#second#, 
+				#ratio#, 
+				#minhighad#, 
+				#maxhighad#, 
+				#standardscale#, 
+				#minamplitude#, 
+				#minamplitudead#, 
+				#maxamplitude#, 
+				#maxamplitudead#, 
+				#emptyhookad#, 
+				#loadweightad#, 
+				#farmarweight#, 
+				#rotarytype#, 
+				#absturndirection#, 
+				#absturnvalue#, 
+				#absturnpointvalue#, 
+				#potleftlimitad#, 
+				#potrightlimitad#, 
+				#potlimitangle#, 
+				#liftweight4ratio#, 
+				#liftweightrange4r#, 
+				#maxrange4ratio#, 
+				#maxrangeweight4r#, 
+				#liftweight2ratio#, 
+				#maxweightrange2r#, 
+				#maxrange2ratio#, 
+				#maxrangeweight2r#, 
+				#zigbeelocalno#, 
+				#zigbeechannelno#, 
+				#zigbeegroupno#, 
+				#anticollisionx#, 
+				#anticollisiony#, 
+				#liftweightarmlenght#, 
+				#balancearmlenght#, 
+				#towerheight#, 
+				#toweratheight#, 
+				#ampreductionvalue#, 
+				#amprestrictvalue#, 
+				#highreductionvalue#, 
+				#highrestrictvalue#, 
+				#turnreducionvalue#, 
+				#turnrestrictvalue#, 
+				#areareductionvalue#, 
+				#arearestrictvalue#, 
+				#acreductionvalue#, 
+				#acrestrictvalue#, 
+				#throwovertorque#, 
+				#cuttorque#, 
+				#throwoverweight#, 
+				#cutweight#, 
+				#softversion#, 
+				#createTime#, 
+				#projectId#
+			)
+		]]>
+	</insert>
+
+	<!-- 新增记录 -->
+	<insert id="insert" parameterClass="tcsmSnapParamEntity">
+		<![CDATA[
+			INSERT INTO TCSM_SNAP_PARAM (
+				ID, 
+				SENDCOMPANY, 
+				ACCEPTCOMPANY, 
+				OPERATION_TYPE, 
+				APP_TYPE, 
+				CRANENO, 
+				YEAR, 
+				MOUTH, 
+				DAY, 
+				HOUR, 
+				MINUTE, 
+				SECOND, 
+				RATIO, 
+				MINHIGHAD, 
+				MAXHIGHAD, 
+				STANDARDSCALE, 
+				MINAMPLITUDE, 
+				MINAMPLITUDEAD, 
+				MAXAMPLITUDE, 
+				MAXAMPLITUDEAD, 
+				EMPTYHOOKAD, 
+				LOADWEIGHTAD, 
+				FARMARWEIGHT, 
+				ROTARYTYPE, 
+				ABSTURNDIRECTION, 
+				ABSTURNVALUE, 
+				ABSTURNPOINTVALUE, 
+				POTLEFTLIMITAD, 
+				POTRIGHTLIMITAD, 
+				POTLIMITANGLE, 
+				LIFTWEIGHT4RATIO, 
+				LIFTWEIGHTRANGE4R, 
+				MAXRANGE4RATIO, 
+				MAXRANGEWEIGHT4R, 
+				LIFTWEIGHT2RATIO, 
+				MAXWEIGHTRANGE2R, 
+				MAXRANGE2RATIO, 
+				MAXRANGEWEIGHT2R, 
+				ZIGBEELOCALNO, 
+				ZIGBEECHANNELNO, 
+				ZIGBEEGROUPNO, 
+				ANTICOLLISIONX, 
+				ANTICOLLISIONY, 
+				LIFTWEIGHTARMLENGHT, 
+				BALANCEARMLENGHT, 
+				TOWERHEIGHT, 
+				TOWERATHEIGHT, 
+				AMPREDUCTIONVALUE, 
+				AMPRESTRICTVALUE, 
+				HIGHREDUCTIONVALUE, 
+				HIGHRESTRICTVALUE, 
+				TURNREDUCIONVALUE, 
+				TURNRESTRICTVALUE, 
+				AREAREDUCTIONVALUE, 
+				AREARESTRICTVALUE, 
+				ACREDUCTIONVALUE, 
+				ACRESTRICTVALUE, 
+				THROWOVERTORQUE, 
+				CUTTORQUE, 
+				THROWOVERWEIGHT, 
+				CUTWEIGHT, 
+				SOFTVERSION, 
+				CREATE_TIME, 
+				PROJECT_ID
+			) VALUES (
+				#id#, 
+				#sendcompany#, 
+				#acceptcompany#, 
+				#operationType#, 
+				#appType#, 
+				#craneno#, 
+				#year#, 
+				#mouth#, 
+				#day#, 
+				#hour#, 
+				#minute#, 
+				#second#, 
+				#ratio#, 
+				#minhighad#, 
+				#maxhighad#, 
+				#standardscale#, 
+				#minamplitude#, 
+				#minamplitudead#, 
+				#maxamplitude#, 
+				#maxamplitudead#, 
+				#emptyhookad#, 
+				#loadweightad#, 
+				#farmarweight#, 
+				#rotarytype#, 
+				#absturndirection#, 
+				#absturnvalue#, 
+				#absturnpointvalue#, 
+				#potleftlimitad#, 
+				#potrightlimitad#, 
+				#potlimitangle#, 
+				#liftweight4ratio#, 
+				#liftweightrange4r#, 
+				#maxrange4ratio#, 
+				#maxrangeweight4r#, 
+				#liftweight2ratio#, 
+				#maxweightrange2r#, 
+				#maxrange2ratio#, 
+				#maxrangeweight2r#, 
+				#zigbeelocalno#, 
+				#zigbeechannelno#, 
+				#zigbeegroupno#, 
+				#anticollisionx#, 
+				#anticollisiony#, 
+				#liftweightarmlenght#, 
+				#balancearmlenght#, 
+				#towerheight#, 
+				#toweratheight#, 
+				#ampreductionvalue#, 
+				#amprestrictvalue#, 
+				#highreductionvalue#, 
+				#highrestrictvalue#, 
+				#turnreducionvalue#, 
+				#turnrestrictvalue#, 
+				#areareductionvalue#, 
+				#arearestrictvalue#, 
+				#acreductionvalue#, 
+				#acrestrictvalue#, 
+				#throwovertorque#, 
+				#cuttorque#, 
+				#throwoverweight#, 
+				#cutweight#, 
+				#softversion#, 
+				#createTime#, 
+				#projectId#
+			)
+		]]>
+	</insert>
+
+	<!-- 通过ID修改 -->
+	<update id="update" parameterClass="tcsmSnapParamEntity">
+		<![CDATA[
+			UPDATE TCSM_SNAP_PARAM SET
+				SENDCOMPANY = #sendcompany#, 
+				ACCEPTCOMPANY = #acceptcompany#, 
+				OPERATION_TYPE = #operationType#, 
+				APP_TYPE = #appType#, 
+				CRANENO = #craneno#, 
+				YEAR = #year#, 
+				MOUTH = #mouth#, 
+				DAY = #day#, 
+				HOUR = #hour#, 
+				MINUTE = #minute#, 
+				SECOND = #second#, 
+				RATIO = #ratio#, 
+				MINHIGHAD = #minhighad#, 
+				MAXHIGHAD = #maxhighad#, 
+				STANDARDSCALE = #standardscale#, 
+				MINAMPLITUDE = #minamplitude#, 
+				MINAMPLITUDEAD = #minamplitudead#, 
+				MAXAMPLITUDE = #maxamplitude#, 
+				MAXAMPLITUDEAD = #maxamplitudead#, 
+				EMPTYHOOKAD = #emptyhookad#, 
+				LOADWEIGHTAD = #loadweightad#, 
+				FARMARWEIGHT = #farmarweight#, 
+				ROTARYTYPE = #rotarytype#, 
+				ABSTURNDIRECTION = #absturndirection#, 
+				ABSTURNVALUE = #absturnvalue#, 
+				ABSTURNPOINTVALUE = #absturnpointvalue#, 
+				POTLEFTLIMITAD = #potleftlimitad#, 
+				POTRIGHTLIMITAD = #potrightlimitad#, 
+				POTLIMITANGLE = #potlimitangle#, 
+				LIFTWEIGHT4RATIO = #liftweight4ratio#, 
+				LIFTWEIGHTRANGE4R = #liftweightrange4r#, 
+				MAXRANGE4RATIO = #maxrange4ratio#, 
+				MAXRANGEWEIGHT4R = #maxrangeweight4r#, 
+				LIFTWEIGHT2RATIO = #liftweight2ratio#, 
+				MAXWEIGHTRANGE2R = #maxweightrange2r#, 
+				MAXRANGE2RATIO = #maxrange2ratio#, 
+				MAXRANGEWEIGHT2R = #maxrangeweight2r#, 
+				ZIGBEELOCALNO = #zigbeelocalno#, 
+				ZIGBEECHANNELNO = #zigbeechannelno#, 
+				ZIGBEEGROUPNO = #zigbeegroupno#, 
+				ANTICOLLISIONX = #anticollisionx#, 
+				ANTICOLLISIONY = #anticollisiony#, 
+				LIFTWEIGHTARMLENGHT = #liftweightarmlenght#, 
+				BALANCEARMLENGHT = #balancearmlenght#, 
+				TOWERHEIGHT = #towerheight#, 
+				TOWERATHEIGHT = #toweratheight#, 
+				AMPREDUCTIONVALUE = #ampreductionvalue#, 
+				AMPRESTRICTVALUE = #amprestrictvalue#, 
+				HIGHREDUCTIONVALUE = #highreductionvalue#, 
+				HIGHRESTRICTVALUE = #highrestrictvalue#, 
+				TURNREDUCIONVALUE = #turnreducionvalue#, 
+				TURNRESTRICTVALUE = #turnrestrictvalue#, 
+				AREAREDUCTIONVALUE = #areareductionvalue#, 
+				AREARESTRICTVALUE = #arearestrictvalue#, 
+				ACREDUCTIONVALUE = #acreductionvalue#, 
+				ACRESTRICTVALUE = #acrestrictvalue#, 
+				THROWOVERTORQUE = #throwovertorque#, 
+				CUTTORQUE = #cuttorque#, 
+				THROWOVERWEIGHT = #throwoverweight#, 
+				CUTWEIGHT = #cutweight#, 
+				SOFTVERSION = #softversion#, 
+				CREATE_TIME = #createTime#, 
+				PROJECT_ID = #projectId#
+			WHERE 
+				ID = #id#
+		]]>
+	</update>
+
+	<!-- 通过ID删除 -->
+	<delete id="delete">
+		<![CDATA[
+			DELETE FROM TCSM_SNAP_PARAM WHERE
+			ID = #id#
+		]]>
+	</delete>
+
+	<!-- 通过ID列表批量删除 -->
+	<delete id="deleteByIds" parameterClass="java.lang.String">
+		<![CDATA[
+			DELETE FROM TCSM_SNAP_PARAM WHERE
+			ID IN ($ids$)
+		]]>
+	</delete>
+
+	<!-- 通过ID查询 -->
+	<select id="getById" resultMap="tcsmSnapParam">
+		SELECT
+		<include refid="tcsmSnapParam.columns" />
+		<![CDATA[
+			FROM TCSM_SNAP_PARAM 
+			WHERE 
+				ID = #id#
+		]]>
+	</select>
+
+	<!-- 用于查询抽取的公共的条件 -->
+	<sql id="tcsmSnapParam.queryParams">
+		<dynamic prepend="WHERE">
+			<isNotNull property="searchFilters">
+				<isNotEmpty prepend="AND"
+					property="searchFilters.id">
+					<![CDATA[
+					ID $searchFilters.id.operation$ #searchFilters.id.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.sendcompany">
+					<![CDATA[
+					SENDCOMPANY $searchFilters.sendcompany.operation$ #searchFilters.sendcompany.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.acceptcompany">
+					<![CDATA[
+					ACCEPTCOMPANY $searchFilters.acceptcompany.operation$ #searchFilters.acceptcompany.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.operationType">
+					<![CDATA[
+					OPERATION_TYPE $searchFilters.operationType.operation$ #searchFilters.operationType.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.appType">
+					<![CDATA[
+					APP_TYPE $searchFilters.appType.operation$ #searchFilters.appType.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.craneno">
+					<![CDATA[
+					CRANENO $searchFilters.craneno.operation$ #searchFilters.craneno.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.year">
+					<![CDATA[
+					YEAR $searchFilters.year.operation$ #searchFilters.year.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.mouth">
+					<![CDATA[
+					MOUTH $searchFilters.mouth.operation$ #searchFilters.mouth.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.day">
+					<![CDATA[
+					DAY $searchFilters.day.operation$ #searchFilters.day.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.hour">
+					<![CDATA[
+					HOUR $searchFilters.hour.operation$ #searchFilters.hour.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.minute">
+					<![CDATA[
+					MINUTE $searchFilters.minute.operation$ #searchFilters.minute.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.second">
+					<![CDATA[
+					SECOND $searchFilters.second.operation$ #searchFilters.second.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.ratio">
+					<![CDATA[
+					RATIO $searchFilters.ratio.operation$ #searchFilters.ratio.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.minhighad">
+					<![CDATA[
+					MINHIGHAD $searchFilters.minhighad.operation$ #searchFilters.minhighad.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.maxhighad">
+					<![CDATA[
+					MAXHIGHAD $searchFilters.maxhighad.operation$ #searchFilters.maxhighad.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.standardscale">
+					<![CDATA[
+					STANDARDSCALE $searchFilters.standardscale.operation$ #searchFilters.standardscale.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.minamplitude">
+					<![CDATA[
+					MINAMPLITUDE $searchFilters.minamplitude.operation$ #searchFilters.minamplitude.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.minamplitudead">
+					<![CDATA[
+					MINAMPLITUDEAD $searchFilters.minamplitudead.operation$ #searchFilters.minamplitudead.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.maxamplitude">
+					<![CDATA[
+					MAXAMPLITUDE $searchFilters.maxamplitude.operation$ #searchFilters.maxamplitude.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.maxamplitudead">
+					<![CDATA[
+					MAXAMPLITUDEAD $searchFilters.maxamplitudead.operation$ #searchFilters.maxamplitudead.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.emptyhookad">
+					<![CDATA[
+					EMPTYHOOKAD $searchFilters.emptyhookad.operation$ #searchFilters.emptyhookad.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.loadweightad">
+					<![CDATA[
+					LOADWEIGHTAD $searchFilters.loadweightad.operation$ #searchFilters.loadweightad.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.farmarweight">
+					<![CDATA[
+					FARMARWEIGHT $searchFilters.farmarweight.operation$ #searchFilters.farmarweight.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.rotarytype">
+					<![CDATA[
+					ROTARYTYPE $searchFilters.rotarytype.operation$ #searchFilters.rotarytype.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.absturndirection">
+					<![CDATA[
+					ABSTURNDIRECTION $searchFilters.absturndirection.operation$ #searchFilters.absturndirection.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.absturnvalue">
+					<![CDATA[
+					ABSTURNVALUE $searchFilters.absturnvalue.operation$ #searchFilters.absturnvalue.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.absturnpointvalue">
+					<![CDATA[
+					ABSTURNPOINTVALUE $searchFilters.absturnpointvalue.operation$ #searchFilters.absturnpointvalue.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.potleftlimitad">
+					<![CDATA[
+					POTLEFTLIMITAD $searchFilters.potleftlimitad.operation$ #searchFilters.potleftlimitad.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.potrightlimitad">
+					<![CDATA[
+					POTRIGHTLIMITAD $searchFilters.potrightlimitad.operation$ #searchFilters.potrightlimitad.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.potlimitangle">
+					<![CDATA[
+					POTLIMITANGLE $searchFilters.potlimitangle.operation$ #searchFilters.potlimitangle.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.liftweight4ratio">
+					<![CDATA[
+					LIFTWEIGHT4RATIO $searchFilters.liftweight4ratio.operation$ #searchFilters.liftweight4ratio.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.liftweightrange4r">
+					<![CDATA[
+					LIFTWEIGHTRANGE4R $searchFilters.liftweightrange4r.operation$ #searchFilters.liftweightrange4r.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.maxrange4ratio">
+					<![CDATA[
+					MAXRANGE4RATIO $searchFilters.maxrange4ratio.operation$ #searchFilters.maxrange4ratio.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.maxrangeweight4r">
+					<![CDATA[
+					MAXRANGEWEIGHT4R $searchFilters.maxrangeweight4r.operation$ #searchFilters.maxrangeweight4r.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.liftweight2ratio">
+					<![CDATA[
+					LIFTWEIGHT2RATIO $searchFilters.liftweight2ratio.operation$ #searchFilters.liftweight2ratio.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.maxweightrange2r">
+					<![CDATA[
+					MAXWEIGHTRANGE2R $searchFilters.maxweightrange2r.operation$ #searchFilters.maxweightrange2r.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.maxrange2ratio">
+					<![CDATA[
+					MAXRANGE2RATIO $searchFilters.maxrange2ratio.operation$ #searchFilters.maxrange2ratio.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.maxrangeweight2r">
+					<![CDATA[
+					MAXRANGEWEIGHT2R $searchFilters.maxrangeweight2r.operation$ #searchFilters.maxrangeweight2r.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.zigbeelocalno">
+					<![CDATA[
+					ZIGBEELOCALNO $searchFilters.zigbeelocalno.operation$ #searchFilters.zigbeelocalno.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.zigbeechannelno">
+					<![CDATA[
+					ZIGBEECHANNELNO $searchFilters.zigbeechannelno.operation$ #searchFilters.zigbeechannelno.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.zigbeegroupno">
+					<![CDATA[
+					ZIGBEEGROUPNO $searchFilters.zigbeegroupno.operation$ #searchFilters.zigbeegroupno.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.anticollisionx">
+					<![CDATA[
+					ANTICOLLISIONX $searchFilters.anticollisionx.operation$ #searchFilters.anticollisionx.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.anticollisiony">
+					<![CDATA[
+					ANTICOLLISIONY $searchFilters.anticollisiony.operation$ #searchFilters.anticollisiony.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.liftweightarmlenght">
+					<![CDATA[
+					LIFTWEIGHTARMLENGHT $searchFilters.liftweightarmlenght.operation$ #searchFilters.liftweightarmlenght.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.balancearmlenght">
+					<![CDATA[
+					BALANCEARMLENGHT $searchFilters.balancearmlenght.operation$ #searchFilters.balancearmlenght.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.towerheight">
+					<![CDATA[
+					TOWERHEIGHT $searchFilters.towerheight.operation$ #searchFilters.towerheight.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.toweratheight">
+					<![CDATA[
+					TOWERATHEIGHT $searchFilters.toweratheight.operation$ #searchFilters.toweratheight.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.ampreductionvalue">
+					<![CDATA[
+					AMPREDUCTIONVALUE $searchFilters.ampreductionvalue.operation$ #searchFilters.ampreductionvalue.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.amprestrictvalue">
+					<![CDATA[
+					AMPRESTRICTVALUE $searchFilters.amprestrictvalue.operation$ #searchFilters.amprestrictvalue.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.highreductionvalue">
+					<![CDATA[
+					HIGHREDUCTIONVALUE $searchFilters.highreductionvalue.operation$ #searchFilters.highreductionvalue.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.highrestrictvalue">
+					<![CDATA[
+					HIGHRESTRICTVALUE $searchFilters.highrestrictvalue.operation$ #searchFilters.highrestrictvalue.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.turnreducionvalue">
+					<![CDATA[
+					TURNREDUCIONVALUE $searchFilters.turnreducionvalue.operation$ #searchFilters.turnreducionvalue.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.turnrestrictvalue">
+					<![CDATA[
+					TURNRESTRICTVALUE $searchFilters.turnrestrictvalue.operation$ #searchFilters.turnrestrictvalue.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.areareductionvalue">
+					<![CDATA[
+					AREAREDUCTIONVALUE $searchFilters.areareductionvalue.operation$ #searchFilters.areareductionvalue.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.arearestrictvalue">
+					<![CDATA[
+					AREARESTRICTVALUE $searchFilters.arearestrictvalue.operation$ #searchFilters.arearestrictvalue.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.acreductionvalue">
+					<![CDATA[
+					ACREDUCTIONVALUE $searchFilters.acreductionvalue.operation$ #searchFilters.acreductionvalue.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.acrestrictvalue">
+					<![CDATA[
+					ACRESTRICTVALUE $searchFilters.acrestrictvalue.operation$ #searchFilters.acrestrictvalue.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.throwovertorque">
+					<![CDATA[
+					THROWOVERTORQUE $searchFilters.throwovertorque.operation$ #searchFilters.throwovertorque.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.cuttorque">
+					<![CDATA[
+					CUTTORQUE $searchFilters.cuttorque.operation$ #searchFilters.cuttorque.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.throwoverweight">
+					<![CDATA[
+					THROWOVERWEIGHT $searchFilters.throwoverweight.operation$ #searchFilters.throwoverweight.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.cutweight">
+					<![CDATA[
+					CUTWEIGHT $searchFilters.cutweight.operation$ #searchFilters.cutweight.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.softversion">
+					<![CDATA[
+					SOFTVERSION $searchFilters.softversion.operation$ #searchFilters.softversion.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.createTime">
+					<![CDATA[
+					CREATE_TIME $searchFilters.createTime.operation$ TO_DATE(#searchFilters.createTime.value#, 'yyyy-mm-dd hh24:mi:ss')
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.beginCreateTime">
+					<![CDATA[
+					CREATE_TIME $searchFilters.beginCreateTime.operation$ TO_DATE(#searchFilters.beginCreateTime.value#, 'yyyy-mm-dd hh24:mi:ss')
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.endCreateTime">
+					<![CDATA[
+					CREATE_TIME $searchFilters.endCreateTime.operation$ TO_DATE(#searchFilters.endCreateTime.value#, 'yyyy-mm-dd hh24:mi:ss')
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.projectId">
+					<![CDATA[
+					PROJECT_ID $searchFilters.projectId.operation$ #searchFilters.projectId.value#
+					]]>
+				</isNotEmpty>
+			</isNotNull>
+		</dynamic>
+		<dynamic prepend="ORDER BY">
+			<isNotNull property="orderColumn">
+				<![CDATA[
+				$orderColumn$
+				]]>
+				<isNotNull property="orderMode">
+					$orderMode$
+				</isNotNull>
+			</isNotNull>
+		</dynamic>
+	</sql>
+
+	<!-- 为分页查询符合条件的记录数 -->
+	<select id="queryByPage_count" resultClass="int">
+		SELECT count(*) FROM TCSM_SNAP_PARAM
+		<include refid="tcsmSnapParam.queryParams" />
+	</select>
+
+	<!-- 分页查询指定页记录 -->
+	<select id="queryByPage" resultMap="tcsmSnapParam">
+		SELECT * FROM (
+		SELECT ROWNUM RN, T.* FROM (
+		SELECT
+		<include refid="tcsmSnapParam.columns" />
+		<![CDATA[
+			FROM TCSM_SNAP_PARAM 
+		]]>
+		<include refid="tcsmSnapParam.queryParams" />
+		) T ) WHERE
+		<![CDATA[
+			RN > $paging.startRecord$ AND RN <= $paging.startRecord$ + $paging.pageSize$
+		]]>
+	</select>
+
+	<!-- 查询所有记录 -->
+	<select id="queryAll" resultMap="tcsmSnapParam">
+		SELECT
+		<include refid="tcsmSnapParam.columns" />
+		<![CDATA[
+			FROM TCSM_SNAP_PARAM
+		]]>
+		<include refid="tcsmSnapParam.queryParams" />
+	</select>
+</sqlMap>

@@ -1,0 +1,751 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" 
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="com.zhhw.znh.yfb.tcsm.beans.entity.TcsmDeviceInfoEntity">
+	<typeAlias alias="tcsmDeviceInfoEntity" type="com.zhhw.znh.yfb.tcsm.beans.entity.TcsmDeviceInfoEntity" />
+	<resultMap id="tcsmDeviceInfo" class="com.zhhw.znh.yfb.tcsm.beans.entity.TcsmDeviceInfoEntity">
+		<result property="id" column="ID" />
+		<result property="projectId" column="PROJECT_ID" />
+		<result property="projectName" column="PROJECT_NAME" />
+		<result property="deviceName" column="DEVICE_NAME" />
+		<result property="equipmentno" column="EQUIPMENTNO" />
+		<result property="lastonlinetime" column="LASTONLINETIME" />
+		<result property="onlines" column="ONLINES" />
+		<result property="height" column="HEIGHT" />
+		<result property="range" column="RANGE" />
+		<result property="weight" column="WEIGHT" />
+		<result property="moment" column="MOMENT" />
+		<result property="windSpeed" column="WIND_SPEED" />
+		<result property="dipAngleX" column="DIP_ANGLE_X" />
+		<result property="dipAngleY" column="DIP_ANGLE_Y" />
+		<result property="liftingArmLength" column="LIFTING_ARM_LENGTH" />
+		<result property="balanceArmLength" column="BALANCE_ARM_LENGTH" />
+		<result property="towerBodyHeight" column="TOWER_BODY_HEIGHT" />
+		<result property="towerHatHeight" column="TOWER_HAT_HEIGHT" />
+		<result property="rotation" column="ROTATION" />
+		<result property="momentpercentage" column="MOMENTPERCENTAGE" />
+		<result property="weightpercentage" column="WEIGHTPERCENTAGE" />
+		<result property="rangepercentage" column="RANGEPERCENTAGE" />
+		<result property="heightpercentage" column="HEIGHTPERCENTAGE" />
+		<result property="safeTorque" column="SAFE_TORQUE" />
+		<result property="safeWeight" column="SAFE_WEIGHT" />
+		<result property="rangeDecelerate" column="RANGE_DECELERATE" />
+		<result property="rangeSpeedlimit" column="RANGE_SPEEDLIMIT" />
+		<result property="heightDecelerate" column="HEIGHT_DECELERATE" />
+		<result property="heightSpeedlimit" column="HEIGHT_SPEEDLIMIT" />
+		<result property="speedExchangeTorque" column="SPEED_EXCHANGE_TORQUE" />
+		<result property="cuttingTorque" column="CUTTING_TORQUE" />
+		<result property="speedExchangeWeight" column="SPEED_EXCHANGE_WEIGHT" />
+		<result property="rotationDecelerate" column="ROTATION_DECELERATE" />
+		<result property="rotationSpeedlimit" column="ROTATION_SPEEDLIMIT" />
+		<result property="cuttingWeight" column="CUTTING_WEIGHT" />
+		<result property="rate" column="RATE" />
+		<result property="createUserId" column="CREATE_USER_ID" />
+		<result property="createUserName" column="CREATE_USER_NAME" />
+		<result property="createTime" column="CREATE_TIME" />
+		<result property="createIp" column="CREATE_IP" />
+		<result property="modifyUserId" column="MODIFY_USER_ID" />
+		<result property="modifyUserName" column="MODIFY_USER_NAME" />
+		<result property="modifyTime" column="MODIFY_TIME" />
+		<result property="modifyIp" column="MODIFY_IP" />
+		<result property="version" column="VERSION" />
+		<result property="efficient" column="EFFICIENT" />
+		<result property="deviceLon" column="DEVICE_LON" />
+		<result property="deviceLat" column="DEVICE_LAT" />
+		<result property="positionx" column="POSITIONX" />
+		<result property="positiony" column="POSITIONY" />
+	</resultMap>
+
+	<!-- 用于select查询公用抽取的列 -->
+	<sql id="tcsmDeviceInfo.columns">
+		<![CDATA[
+		ID, PROJECT_ID, PROJECT_NAME, DEVICE_NAME, EQUIPMENTNO, LASTONLINETIME, ONLINES, HEIGHT, RANGE, WEIGHT, MOMENT, WIND_SPEED, DIP_ANGLE_X, DIP_ANGLE_Y, LIFTING_ARM_LENGTH, BALANCE_ARM_LENGTH, TOWER_BODY_HEIGHT, TOWER_HAT_HEIGHT, ROTATION, MOMENTPERCENTAGE, WEIGHTPERCENTAGE, RANGEPERCENTAGE, HEIGHTPERCENTAGE, SAFE_TORQUE, SAFE_WEIGHT, RANGE_DECELERATE, RANGE_SPEEDLIMIT, HEIGHT_DECELERATE, HEIGHT_SPEEDLIMIT, SPEED_EXCHANGE_TORQUE, CUTTING_TORQUE, SPEED_EXCHANGE_WEIGHT, ROTATION_DECELERATE, ROTATION_SPEEDLIMIT, CUTTING_WEIGHT, RATE, CREATE_USER_ID, CREATE_USER_NAME, CREATE_TIME, CREATE_IP, MODIFY_USER_ID, MODIFY_USER_NAME, MODIFY_TIME, MODIFY_IP, VERSION, EFFICIENT, DEVICE_LON, DEVICE_LAT, POSITIONX, POSITIONY
+		]]>
+	</sql>
+
+	<!-- 新增记录 -->
+	<insert id="save" parameterClass="tcsmDeviceInfoEntity">
+		<![CDATA[
+			INSERT INTO TCSM_DEVICE_INFO (
+				ID, 
+				PROJECT_ID, 
+				PROJECT_NAME, 
+				DEVICE_NAME, 
+				EQUIPMENTNO, 
+				LASTONLINETIME, 
+				ONLINES, 
+				HEIGHT, 
+				RANGE, 
+				WEIGHT, 
+				MOMENT, 
+				WIND_SPEED, 
+				DIP_ANGLE_X, 
+				DIP_ANGLE_Y, 
+				LIFTING_ARM_LENGTH, 
+				BALANCE_ARM_LENGTH, 
+				TOWER_BODY_HEIGHT, 
+				TOWER_HAT_HEIGHT, 
+				ROTATION, 
+				MOMENTPERCENTAGE, 
+				WEIGHTPERCENTAGE, 
+				RANGEPERCENTAGE, 
+				HEIGHTPERCENTAGE, 
+				SAFE_TORQUE, 
+				SAFE_WEIGHT, 
+				RANGE_DECELERATE, 
+				RANGE_SPEEDLIMIT, 
+				HEIGHT_DECELERATE, 
+				HEIGHT_SPEEDLIMIT, 
+				SPEED_EXCHANGE_TORQUE, 
+				CUTTING_TORQUE, 
+				SPEED_EXCHANGE_WEIGHT, 
+				ROTATION_DECELERATE, 
+				ROTATION_SPEEDLIMIT, 
+				CUTTING_WEIGHT, 
+				RATE, 
+				CREATE_USER_ID, 
+				CREATE_USER_NAME, 
+				CREATE_TIME, 
+				CREATE_IP, 
+				MODIFY_USER_ID, 
+				MODIFY_USER_NAME, 
+				MODIFY_TIME, 
+				MODIFY_IP, 
+				VERSION, 
+				EFFICIENT, 
+				DEVICE_LON, 
+				DEVICE_LAT, 
+				POSITIONX, 
+				POSITIONY
+			) VALUES (
+				#id#, 
+				#projectId#, 
+				#projectName#, 
+				#deviceName#, 
+				#equipmentno#, 
+				#lastonlinetime#, 
+				#onlines#, 
+				#height#, 
+				#range#, 
+				#weight#, 
+				#moment#, 
+				#windSpeed#, 
+				#dipAngleX#, 
+				#dipAngleY#, 
+				#liftingArmLength#, 
+				#balanceArmLength#, 
+				#towerBodyHeight#, 
+				#towerHatHeight#, 
+				#rotation#, 
+				#momentpercentage#, 
+				#weightpercentage#, 
+				#rangepercentage#, 
+				#heightpercentage#, 
+				#safeTorque#, 
+				#safeWeight#, 
+				#rangeDecelerate#, 
+				#rangeSpeedlimit#, 
+				#heightDecelerate#, 
+				#heightSpeedlimit#, 
+				#speedExchangeTorque#, 
+				#cuttingTorque#, 
+				#speedExchangeWeight#, 
+				#rotationDecelerate#, 
+				#rotationSpeedlimit#, 
+				#cuttingWeight#, 
+				#rate#, 
+				#createUserId#, 
+				#createUserName#, 
+				#createTime#, 
+				#createIp#, 
+				#modifyUserId#, 
+				#modifyUserName#, 
+				#modifyTime#, 
+				#modifyIp#, 
+				#version#, 
+				#efficient#, 
+				#deviceLon#, 
+				#deviceLat#, 
+				#positionx#, 
+				#positiony#
+			)
+		]]>
+	</insert>
+
+	<!-- 新增记录 -->
+	<insert id="insert" parameterClass="tcsmDeviceInfoEntity">
+		<![CDATA[
+			INSERT INTO TCSM_DEVICE_INFO (
+				ID, 
+				PROJECT_ID, 
+				PROJECT_NAME, 
+				DEVICE_NAME, 
+				EQUIPMENTNO, 
+				LASTONLINETIME, 
+				ONLINES, 
+				HEIGHT, 
+				RANGE, 
+				WEIGHT, 
+				MOMENT, 
+				WIND_SPEED, 
+				DIP_ANGLE_X, 
+				DIP_ANGLE_Y, 
+				LIFTING_ARM_LENGTH, 
+				BALANCE_ARM_LENGTH, 
+				TOWER_BODY_HEIGHT, 
+				TOWER_HAT_HEIGHT, 
+				ROTATION, 
+				MOMENTPERCENTAGE, 
+				WEIGHTPERCENTAGE, 
+				RANGEPERCENTAGE, 
+				HEIGHTPERCENTAGE, 
+				SAFE_TORQUE, 
+				SAFE_WEIGHT, 
+				RANGE_DECELERATE, 
+				RANGE_SPEEDLIMIT, 
+				HEIGHT_DECELERATE, 
+				HEIGHT_SPEEDLIMIT, 
+				SPEED_EXCHANGE_TORQUE, 
+				CUTTING_TORQUE, 
+				SPEED_EXCHANGE_WEIGHT, 
+				ROTATION_DECELERATE, 
+				ROTATION_SPEEDLIMIT, 
+				CUTTING_WEIGHT, 
+				RATE, 
+				CREATE_USER_ID, 
+				CREATE_USER_NAME, 
+				CREATE_TIME, 
+				CREATE_IP, 
+				MODIFY_USER_ID, 
+				MODIFY_USER_NAME, 
+				MODIFY_TIME, 
+				MODIFY_IP, 
+				VERSION, 
+				EFFICIENT, 
+				DEVICE_LON, 
+				DEVICE_LAT, 
+				POSITIONX, 
+				POSITIONY
+			) VALUES (
+				#id#, 
+				#projectId#, 
+				#projectName#, 
+				#deviceName#, 
+				#equipmentno#, 
+				#lastonlinetime#, 
+				#onlines#, 
+				#height#, 
+				#range#, 
+				#weight#, 
+				#moment#, 
+				#windSpeed#, 
+				#dipAngleX#, 
+				#dipAngleY#, 
+				#liftingArmLength#, 
+				#balanceArmLength#, 
+				#towerBodyHeight#, 
+				#towerHatHeight#, 
+				#rotation#, 
+				#momentpercentage#, 
+				#weightpercentage#, 
+				#rangepercentage#, 
+				#heightpercentage#, 
+				#safeTorque#, 
+				#safeWeight#, 
+				#rangeDecelerate#, 
+				#rangeSpeedlimit#, 
+				#heightDecelerate#, 
+				#heightSpeedlimit#, 
+				#speedExchangeTorque#, 
+				#cuttingTorque#, 
+				#speedExchangeWeight#, 
+				#rotationDecelerate#, 
+				#rotationSpeedlimit#, 
+				#cuttingWeight#, 
+				#rate#, 
+				#createUserId#, 
+				#createUserName#, 
+				#createTime#, 
+				#createIp#, 
+				#modifyUserId#, 
+				#modifyUserName#, 
+				#modifyTime#, 
+				#modifyIp#, 
+				#version#, 
+				#efficient#, 
+				#deviceLon#, 
+				#deviceLat#, 
+				#positionx#, 
+				#positiony#
+			)
+		]]>
+	</insert>
+
+	<!-- 通过ID修改 -->
+	<update id="update" parameterClass="tcsmDeviceInfoEntity">
+		<![CDATA[
+			UPDATE TCSM_DEVICE_INFO SET
+				PROJECT_ID = #projectId#, 
+				PROJECT_NAME = #projectName#, 
+				DEVICE_NAME = #deviceName#, 
+				EQUIPMENTNO = #equipmentno#, 
+				LASTONLINETIME = #lastonlinetime#, 
+				ONLINES = #onlines#, 
+				HEIGHT = #height#, 
+				RANGE = #range#, 
+				WEIGHT = #weight#, 
+				MOMENT = #moment#, 
+				WIND_SPEED = #windSpeed#, 
+				DIP_ANGLE_X = #dipAngleX#, 
+				DIP_ANGLE_Y = #dipAngleY#, 
+				LIFTING_ARM_LENGTH = #liftingArmLength#, 
+				BALANCE_ARM_LENGTH = #balanceArmLength#, 
+				TOWER_BODY_HEIGHT = #towerBodyHeight#, 
+				TOWER_HAT_HEIGHT = #towerHatHeight#, 
+				ROTATION = #rotation#, 
+				MOMENTPERCENTAGE = #momentpercentage#, 
+				WEIGHTPERCENTAGE = #weightpercentage#, 
+				RANGEPERCENTAGE = #rangepercentage#, 
+				HEIGHTPERCENTAGE = #heightpercentage#, 
+				SAFE_TORQUE = #safeTorque#, 
+				SAFE_WEIGHT = #safeWeight#, 
+				RANGE_DECELERATE = #rangeDecelerate#, 
+				RANGE_SPEEDLIMIT = #rangeSpeedlimit#, 
+				HEIGHT_DECELERATE = #heightDecelerate#, 
+				HEIGHT_SPEEDLIMIT = #heightSpeedlimit#, 
+				SPEED_EXCHANGE_TORQUE = #speedExchangeTorque#, 
+				CUTTING_TORQUE = #cuttingTorque#, 
+				SPEED_EXCHANGE_WEIGHT = #speedExchangeWeight#, 
+				ROTATION_DECELERATE = #rotationDecelerate#, 
+				ROTATION_SPEEDLIMIT = #rotationSpeedlimit#, 
+				CUTTING_WEIGHT = #cuttingWeight#, 
+				RATE = #rate#, 
+				MODIFY_USER_ID = #modifyUserId#, 
+				MODIFY_USER_NAME = #modifyUserName#, 
+				MODIFY_TIME = #modifyTime#, 
+				MODIFY_IP = #modifyIp#, 
+				VERSION = #version#, 
+				EFFICIENT = #efficient#, 
+				DEVICE_LON = #deviceLon#, 
+				DEVICE_LAT = #deviceLat#, 
+				POSITIONX = #positionx#, 
+				POSITIONY = #positiony#
+			WHERE 
+				ID = #id#
+		]]>
+	</update>
+
+	<!-- 通过ID删除 -->
+	<delete id="delete">
+		<![CDATA[
+			DELETE FROM TCSM_DEVICE_INFO WHERE
+			ID = #id#
+		]]>
+	</delete>
+
+	<!-- 通过ID列表批量删除 -->
+	<delete id="deleteByIds" parameterClass="java.lang.String">
+		<![CDATA[
+			DELETE FROM TCSM_DEVICE_INFO WHERE
+			ID IN ($ids$)
+		]]>
+	</delete>
+
+	<!-- 通过ID查询 -->
+	<select id="getById" resultMap="tcsmDeviceInfo">
+		SELECT
+		<include refid="tcsmDeviceInfo.columns" />
+		<![CDATA[
+			FROM TCSM_DEVICE_INFO 
+			WHERE 
+				ID = #id#
+		]]>
+	</select>
+
+	<!-- 用于查询抽取的公共的条件 -->
+	<sql id="tcsmDeviceInfo.queryParams">
+		<dynamic prepend="WHERE">
+			<isNotNull property="searchFilters">
+				<isNotEmpty prepend="AND"
+					property="searchFilters.id">
+					<![CDATA[
+					ID $searchFilters.id.operation$ #searchFilters.id.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.projectId">
+					<![CDATA[
+					PROJECT_ID $searchFilters.projectId.operation$ #searchFilters.projectId.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.projectName">
+					<![CDATA[
+					PROJECT_NAME $searchFilters.projectName.operation$ #searchFilters.projectName.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.deviceName">
+					<![CDATA[
+					DEVICE_NAME $searchFilters.deviceName.operation$ #searchFilters.deviceName.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.equipmentno">
+					<![CDATA[
+					EQUIPMENTNO $searchFilters.equipmentno.operation$ #searchFilters.equipmentno.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.lastonlinetime">
+					<![CDATA[
+					LASTONLINETIME $searchFilters.lastonlinetime.operation$ TO_DATE(#searchFilters.lastonlinetime.value#, 'yyyy-mm-dd hh24:mi:ss')
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.beginLastonlinetime">
+					<![CDATA[
+					LASTONLINETIME $searchFilters.beginLastonlinetime.operation$ TO_DATE(#searchFilters.beginLastonlinetime.value#, 'yyyy-mm-dd hh24:mi:ss')
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.endLastonlinetime">
+					<![CDATA[
+					LASTONLINETIME $searchFilters.endLastonlinetime.operation$ TO_DATE(#searchFilters.endLastonlinetime.value#, 'yyyy-mm-dd hh24:mi:ss')
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.onlines">
+					<![CDATA[
+					ONLINES $searchFilters.onlines.operation$ #searchFilters.onlines.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.height">
+					<![CDATA[
+					HEIGHT $searchFilters.height.operation$ #searchFilters.height.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.range">
+					<![CDATA[
+					RANGE $searchFilters.range.operation$ #searchFilters.range.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.weight">
+					<![CDATA[
+					WEIGHT $searchFilters.weight.operation$ #searchFilters.weight.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.moment">
+					<![CDATA[
+					MOMENT $searchFilters.moment.operation$ #searchFilters.moment.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.windSpeed">
+					<![CDATA[
+					WIND_SPEED $searchFilters.windSpeed.operation$ #searchFilters.windSpeed.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.dipAngleX">
+					<![CDATA[
+					DIP_ANGLE_X $searchFilters.dipAngleX.operation$ #searchFilters.dipAngleX.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.dipAngleY">
+					<![CDATA[
+					DIP_ANGLE_Y $searchFilters.dipAngleY.operation$ #searchFilters.dipAngleY.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.liftingArmLength">
+					<![CDATA[
+					LIFTING_ARM_LENGTH $searchFilters.liftingArmLength.operation$ #searchFilters.liftingArmLength.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.balanceArmLength">
+					<![CDATA[
+					BALANCE_ARM_LENGTH $searchFilters.balanceArmLength.operation$ #searchFilters.balanceArmLength.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.towerBodyHeight">
+					<![CDATA[
+					TOWER_BODY_HEIGHT $searchFilters.towerBodyHeight.operation$ #searchFilters.towerBodyHeight.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.towerHatHeight">
+					<![CDATA[
+					TOWER_HAT_HEIGHT $searchFilters.towerHatHeight.operation$ #searchFilters.towerHatHeight.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.rotation">
+					<![CDATA[
+					ROTATION $searchFilters.rotation.operation$ #searchFilters.rotation.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.momentpercentage">
+					<![CDATA[
+					MOMENTPERCENTAGE $searchFilters.momentpercentage.operation$ #searchFilters.momentpercentage.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.weightpercentage">
+					<![CDATA[
+					WEIGHTPERCENTAGE $searchFilters.weightpercentage.operation$ #searchFilters.weightpercentage.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.rangepercentage">
+					<![CDATA[
+					RANGEPERCENTAGE $searchFilters.rangepercentage.operation$ #searchFilters.rangepercentage.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.heightpercentage">
+					<![CDATA[
+					HEIGHTPERCENTAGE $searchFilters.heightpercentage.operation$ #searchFilters.heightpercentage.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.safeTorque">
+					<![CDATA[
+					SAFE_TORQUE $searchFilters.safeTorque.operation$ #searchFilters.safeTorque.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.safeWeight">
+					<![CDATA[
+					SAFE_WEIGHT $searchFilters.safeWeight.operation$ #searchFilters.safeWeight.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.rangeDecelerate">
+					<![CDATA[
+					RANGE_DECELERATE $searchFilters.rangeDecelerate.operation$ #searchFilters.rangeDecelerate.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.rangeSpeedlimit">
+					<![CDATA[
+					RANGE_SPEEDLIMIT $searchFilters.rangeSpeedlimit.operation$ #searchFilters.rangeSpeedlimit.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.heightDecelerate">
+					<![CDATA[
+					HEIGHT_DECELERATE $searchFilters.heightDecelerate.operation$ #searchFilters.heightDecelerate.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.heightSpeedlimit">
+					<![CDATA[
+					HEIGHT_SPEEDLIMIT $searchFilters.heightSpeedlimit.operation$ #searchFilters.heightSpeedlimit.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.speedExchangeTorque">
+					<![CDATA[
+					SPEED_EXCHANGE_TORQUE $searchFilters.speedExchangeTorque.operation$ #searchFilters.speedExchangeTorque.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.cuttingTorque">
+					<![CDATA[
+					CUTTING_TORQUE $searchFilters.cuttingTorque.operation$ #searchFilters.cuttingTorque.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.speedExchangeWeight">
+					<![CDATA[
+					SPEED_EXCHANGE_WEIGHT $searchFilters.speedExchangeWeight.operation$ #searchFilters.speedExchangeWeight.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.rotationDecelerate">
+					<![CDATA[
+					ROTATION_DECELERATE $searchFilters.rotationDecelerate.operation$ #searchFilters.rotationDecelerate.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.rotationSpeedlimit">
+					<![CDATA[
+					ROTATION_SPEEDLIMIT $searchFilters.rotationSpeedlimit.operation$ #searchFilters.rotationSpeedlimit.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.cuttingWeight">
+					<![CDATA[
+					CUTTING_WEIGHT $searchFilters.cuttingWeight.operation$ #searchFilters.cuttingWeight.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.rate">
+					<![CDATA[
+					RATE $searchFilters.rate.operation$ #searchFilters.rate.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.createUserId">
+					<![CDATA[
+					CREATE_USER_ID $searchFilters.createUserId.operation$ #searchFilters.createUserId.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.createUserName">
+					<![CDATA[
+					CREATE_USER_NAME $searchFilters.createUserName.operation$ #searchFilters.createUserName.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.createTime">
+					<![CDATA[
+					CREATE_TIME $searchFilters.createTime.operation$ TO_DATE(#searchFilters.createTime.value#, 'yyyy-mm-dd hh24:mi:ss')
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.beginCreateTime">
+					<![CDATA[
+					CREATE_TIME $searchFilters.beginCreateTime.operation$ TO_DATE(#searchFilters.beginCreateTime.value#, 'yyyy-mm-dd hh24:mi:ss')
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.endCreateTime">
+					<![CDATA[
+					CREATE_TIME $searchFilters.endCreateTime.operation$ TO_DATE(#searchFilters.endCreateTime.value#, 'yyyy-mm-dd hh24:mi:ss')
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.createIp">
+					<![CDATA[
+					CREATE_IP $searchFilters.createIp.operation$ #searchFilters.createIp.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.modifyUserId">
+					<![CDATA[
+					MODIFY_USER_ID $searchFilters.modifyUserId.operation$ #searchFilters.modifyUserId.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.modifyUserName">
+					<![CDATA[
+					MODIFY_USER_NAME $searchFilters.modifyUserName.operation$ #searchFilters.modifyUserName.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.modifyTime">
+					<![CDATA[
+					MODIFY_TIME $searchFilters.modifyTime.operation$ TO_DATE(#searchFilters.modifyTime.value#, 'yyyy-mm-dd hh24:mi:ss')
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.beginModifyTime">
+					<![CDATA[
+					MODIFY_TIME $searchFilters.beginModifyTime.operation$ TO_DATE(#searchFilters.beginModifyTime.value#, 'yyyy-mm-dd hh24:mi:ss')
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.endModifyTime">
+					<![CDATA[
+					MODIFY_TIME $searchFilters.endModifyTime.operation$ TO_DATE(#searchFilters.endModifyTime.value#, 'yyyy-mm-dd hh24:mi:ss')
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.modifyIp">
+					<![CDATA[
+					MODIFY_IP $searchFilters.modifyIp.operation$ #searchFilters.modifyIp.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.version">
+					<![CDATA[
+					VERSION $searchFilters.version.operation$ #searchFilters.version.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.efficient">
+					<![CDATA[
+					EFFICIENT $searchFilters.efficient.operation$ #searchFilters.efficient.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.deviceLon">
+					<![CDATA[
+					DEVICE_LON $searchFilters.deviceLon.operation$ #searchFilters.deviceLon.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.deviceLat">
+					<![CDATA[
+					DEVICE_LAT $searchFilters.deviceLat.operation$ #searchFilters.deviceLat.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.positionx">
+					<![CDATA[
+					POSITIONX $searchFilters.positionx.operation$ #searchFilters.positionx.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.positiony">
+					<![CDATA[
+					POSITIONY $searchFilters.positiony.operation$ #searchFilters.positiony.value#
+					]]>
+				</isNotEmpty>
+			</isNotNull>
+		</dynamic>
+		<dynamic prepend="ORDER BY">
+			<isNotNull property="orderColumn">
+				<![CDATA[
+				$orderColumn$
+				]]>
+				<isNotNull property="orderMode">
+					$orderMode$
+				</isNotNull>
+			</isNotNull>
+		</dynamic>
+	</sql>
+
+	<!-- 为分页查询符合条件的记录数 -->
+	<select id="queryByPage_count" resultClass="int">
+		SELECT count(*) FROM TCSM_DEVICE_INFO
+		<include refid="tcsmDeviceInfo.queryParams" />
+	</select>
+
+	<!-- 分页查询指定页记录 -->
+	<select id="queryByPage" resultMap="tcsmDeviceInfo">
+		SELECT * FROM (
+		SELECT ROWNUM RN, T.* FROM (
+		SELECT
+		<include refid="tcsmDeviceInfo.columns" />
+		<![CDATA[
+			FROM TCSM_DEVICE_INFO 
+		]]>
+		<include refid="tcsmDeviceInfo.queryParams" />
+		) T ) WHERE
+		<![CDATA[
+			RN > $paging.startRecord$ AND RN <= $paging.startRecord$ + $paging.pageSize$
+		]]>
+	</select>
+
+	<!-- 查询所有记录 -->
+	<select id="queryAll" resultMap="tcsmDeviceInfo">
+		SELECT
+		<include refid="tcsmDeviceInfo.columns" />
+		<![CDATA[
+			FROM TCSM_DEVICE_INFO
+		]]>
+		<include refid="tcsmDeviceInfo.queryParams" />
+	</select>
+</sqlMap>

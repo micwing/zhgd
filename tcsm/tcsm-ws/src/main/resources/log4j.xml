@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration
+	xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<!-- 输出到日志文件（其他部分的日志） -->
+	<!-- 每天产生一个日志文件 -->
+	<appender name="app_filelog"
+		class="org.apache.log4j.DailyRollingFileAppender">
+		<!-- 设置File参数：日志输出文件名 -->
+		<param name="File" value="${catalina.home}/logs/tcsm-ws.log" />
+		<!-- 设置是否在重新启动服务时，在原有日志的基础添加新日志 -->
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<!-- 设置输出文件项目和格式 -->
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%-5p %-d{yyyy-MM-dd HH:mm:ss} [%t] [%c.%M(%L)] - %m%n" />
+		</layout>
+	</appender>
+
+	<!-- 输出到控制台中 -->
+	<appender name="console"
+		class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%-5p %-d{yyyy-MM-dd HH:mm:ss} [%t] [%c.(%L)%M] - %m%n" />
+		</layout>
+	</appender>
+
+	<!-- 输入日志到IBATIS中 -->
+	<appender name="iBatisLogAppender"
+		class="org.apache.log4j.DailyRollingFileAppender">
+		<!-- 设置File参数：日志输出文件名 -->
+		<param name="File"
+			value="${catalina.home}/logs/IBATIS/iBatis.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<!-- 设置输出文件项目和格式 -->
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%-5p %-d{yyyy-MM-dd HH:mm:ss} [%t] [%c.(%L)%M] - %m%n" />
+		</layout>
+	</appender>
+
+	<!-- 输入日志到SQL中 -->
+	<appender name="sqlLogAppender"
+		class="org.apache.log4j.DailyRollingFileAppender">
+		<!-- 设置File参数：日志输出文件名 -->
+		<param name="File" value="${catalina.home}/logs/SQL/sql.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<!-- 设置输出文件项目和格式 -->
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%-5p %-d{yyyy-MM-dd HH:mm:ss} [%t] [%c.(%L)%M] - %m%n" />
+		</layout>
+	</appender>
+	<!-- 输入日志到SYSLOG中 -->
+	<appender name="sysLogAllAppender"
+		class="org.apache.log4j.DailyRollingFileAppender">
+		<!-- 设置File参数：日志输出文件名 -->
+		<param name="File" value="${catalina.home}/logs/SYSLOG/ALL.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<!-- 设置输出文件项目和格式 -->
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%-5p %-d{yyyy-MM-dd HH:mm:ss} [%t] [%c.(%L)%M] - %m%n" />
+		</layout>
+	</appender>
+	<appender name="sysLogDebugAppender"
+		class="org.apache.log4j.DailyRollingFileAppender">
+		<!-- 设置File参数：日志输出文件名 -->
+		<param name="File"
+			value="${catalina.home}/logs/SYSLOG/DEBUG.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<!-- 设置输出文件项目和格式 -->
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%-5p %-d{yyyy-MM-dd HH:mm:ss} [%t] [%c.(%L)%M] - %m%n" />
+		</layout>
+		<!-- 设置记录DEBUG级别日志 -->
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMax" value="DEBUG" />
+			<param name="LevelMin" value="DEBUG" />
+		</filter>
+	</appender>
+	<appender name="sysLogInfoAppender"
+		class="org.apache.log4j.DailyRollingFileAppender">
+		<!-- 设置File参数：日志输出文件名 -->
+		<param name="File" value="${catalina.home}/logs/SYSLOG/INFO.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<!-- 设置输出文件项目和格式 -->
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%-5p %-d{yyyy-MM-dd HH:mm:ss} [%t] [%c.(%L)%M] - %m%n" />
+		</layout>
+		<!-- 设置记录INFO级别日志 -->
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMax" value="INFO" />
+			<param name="LevelMin" value="INFO" />
+		</filter>
+	</appender>
+	<appender name="sysLogWarnAppender"
+		class="org.apache.log4j.DailyRollingFileAppender">
+		<!-- 设置File参数：日志输出文件名 -->
+		<param name="File" value="${catalina.home}/logs/SYSLOG/WARN.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<!-- 设置输出文件项目和格式 -->
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%-5p %-d{yyyy-MM-dd HH:mm:ss} [%t] [%c.(%L)%M] - %m%n" />
+		</layout>
+		<!-- 设置记录WARN级别日志 -->
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMax" value="WARN" />
+			<param name="LevelMin" value="WARN" />
+		</filter>
+	</appender>
+	<appender name="sysLogErrorAppender"
+		class="org.apache.log4j.DailyRollingFileAppender">
+		<!-- 设置File参数：日志输出文件名 -->
+		<param name="File"
+			value="${catalina.home}/logs/SYSLOG/ERROR.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<!-- 设置输出文件项目和格式 -->
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%-5p %-d{yyyy-MM-dd HH:mm:ss} [%t] [%c.(%L)%M] - %m%n" />
+		</layout>
+		<!-- 设置记录ERROR及以上级别日志 -->
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="ERROR" />
+		</filter>
+	</appender>
+
+	<logger name="sysLog" additivity="false">
+		<level value="WARN" />
+		<appender-ref ref="sysLogAllAppender" />
+		<appender-ref ref="sysLogDebugAppender" />
+		<appender-ref ref="sysLogInfoAppender" />
+		<appender-ref ref="sysLogWarnAppender" />
+		<appender-ref ref="sysLogErrorAppender" />
+	</logger>
+
+	<!-- 设置类名限制输出的通道（ibatis） -->
+	<logger name="com.ibatis" additivity="false">
+		<level value="WARN" />
+		<appender-ref ref="iBatisLogAppender" />
+	</logger>
+
+	<!-- 设置类名限制输出的通道 -->
+	<logger name="java.sql" additivity="false">
+		<level value="WARN" />
+		<appender-ref ref="console" />
+		<appender-ref ref="sqlLogAppender" />
+	</logger>
+
+	<!-- 设置接收所有输出的通道 -->
+	<root>
+		<level value="WARN" />
+		<appender-ref ref="console" />
+		<appender-ref ref="app_filelog" />
+	</root>
+</log4j:configuration>

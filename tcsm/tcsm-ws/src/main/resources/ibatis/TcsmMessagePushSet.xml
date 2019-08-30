@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" 
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="com.zhhw.znh.yfb.tcsm.beans.entity.TcsmMessagePushSetEntity">
+	<typeAlias alias="tcsmMessagePushSetEntity" type="com.zhhw.znh.yfb.tcsm.beans.entity.TcsmMessagePushSetEntity" />
+	<resultMap id="tcsmMessagePushSet" class="com.zhhw.znh.yfb.tcsm.beans.entity.TcsmMessagePushSetEntity">
+		<result property="id" column="ID" />
+		<result property="mainSwitchStatus" column="MAIN_SWITCH_STATUS" />
+		<result property="webPushSwitchStatus" column="WEB_PUSH_SWITCH_STATUS" />
+		<result property="appPushSwitchStatus" column="APP_PUSH_SWITCH_STATUS" />
+		<result property="smsPushSwitchStatus" column="SMS_PUSH_SWITCH_STATUS" />
+		<result property="telPushSwitchStatus" column="TEL_PUSH_SWITCH_STATUS" />
+		<result property="salPushSwitchStatus" column="SAL_PUSH_SWITCH_STATUS" />
+		<result property="dmbPushSwitchStatus" column="DMB_PUSH_SWITCH_STATUS" />
+		<result property="remark" column="REMARK" />
+		<result property="projectId" column="PROJECT_ID" />
+		<result property="createUserId" column="CREATE_USER_ID" />
+		<result property="createUserName" column="CREATE_USER_NAME" />
+		<result property="createTime" column="CREATE_TIME" />
+		<result property="createIp" column="CREATE_IP" />
+		<result property="modifyUserId" column="MODIFY_USER_ID" />
+		<result property="modifyUserName" column="MODIFY_USER_NAME" />
+		<result property="modifyTime" column="MODIFY_TIME" />
+		<result property="modifyIp" column="MODIFY_IP" />
+		<result property="version" column="VERSION" />
+		<result property="efficient" column="EFFICIENT" />
+	</resultMap>
+
+	<!-- 用于select查询公用抽取的列 -->
+	<sql id="tcsmMessagePushSet.columns">
+		<![CDATA[
+		ID, MAIN_SWITCH_STATUS, WEB_PUSH_SWITCH_STATUS, APP_PUSH_SWITCH_STATUS, SMS_PUSH_SWITCH_STATUS, TEL_PUSH_SWITCH_STATUS, SAL_PUSH_SWITCH_STATUS, DMB_PUSH_SWITCH_STATUS, REMARK, PROJECT_ID, CREATE_USER_ID, CREATE_USER_NAME, CREATE_TIME, CREATE_IP, MODIFY_USER_ID, MODIFY_USER_NAME, MODIFY_TIME, MODIFY_IP, VERSION, EFFICIENT
+		]]>
+	</sql>
+
+	<!-- 新增记录 -->
+	<insert id="save" parameterClass="tcsmMessagePushSetEntity">
+		<![CDATA[
+			INSERT INTO TCSM_MESSAGE_PUSH_SET (
+				ID, 
+				MAIN_SWITCH_STATUS, 
+				WEB_PUSH_SWITCH_STATUS, 
+				APP_PUSH_SWITCH_STATUS, 
+				SMS_PUSH_SWITCH_STATUS, 
+				TEL_PUSH_SWITCH_STATUS, 
+				SAL_PUSH_SWITCH_STATUS, 
+				DMB_PUSH_SWITCH_STATUS, 
+				REMARK, 
+				PROJECT_ID, 
+				CREATE_USER_ID, 
+				CREATE_USER_NAME, 
+				CREATE_TIME, 
+				CREATE_IP, 
+				MODIFY_USER_ID, 
+				MODIFY_USER_NAME, 
+				MODIFY_TIME, 
+				MODIFY_IP, 
+				VERSION, 
+				EFFICIENT
+			) VALUES (
+				#id#, 
+				#mainSwitchStatus#, 
+				#webPushSwitchStatus#, 
+				#appPushSwitchStatus#, 
+				#smsPushSwitchStatus#, 
+				#telPushSwitchStatus#, 
+				#salPushSwitchStatus#, 
+				#dmbPushSwitchStatus#, 
+				#remark#, 
+				#projectId#, 
+				#createUserId#, 
+				#createUserName#, 
+				#createTime#, 
+				#createIp#, 
+				#modifyUserId#, 
+				#modifyUserName#, 
+				#modifyTime#, 
+				#modifyIp#, 
+				#version#, 
+				#efficient#
+			)
+		]]>
+	</insert>
+
+	<!-- 新增记录 -->
+	<insert id="insert" parameterClass="tcsmMessagePushSetEntity">
+		<![CDATA[
+			INSERT INTO TCSM_MESSAGE_PUSH_SET (
+				ID, 
+				MAIN_SWITCH_STATUS, 
+				WEB_PUSH_SWITCH_STATUS, 
+				APP_PUSH_SWITCH_STATUS, 
+				SMS_PUSH_SWITCH_STATUS, 
+				TEL_PUSH_SWITCH_STATUS, 
+				SAL_PUSH_SWITCH_STATUS, 
+				DMB_PUSH_SWITCH_STATUS, 
+				REMARK, 
+				PROJECT_ID, 
+				CREATE_USER_ID, 
+				CREATE_USER_NAME, 
+				CREATE_TIME, 
+				CREATE_IP, 
+				MODIFY_USER_ID, 
+				MODIFY_USER_NAME, 
+				MODIFY_TIME, 
+				MODIFY_IP, 
+				VERSION, 
+				EFFICIENT
+			) VALUES (
+				#id#, 
+				#mainSwitchStatus#, 
+				#webPushSwitchStatus#, 
+				#appPushSwitchStatus#, 
+				#smsPushSwitchStatus#, 
+				#telPushSwitchStatus#, 
+				#salPushSwitchStatus#, 
+				#dmbPushSwitchStatus#, 
+				#remark#, 
+				#projectId#, 
+				#createUserId#, 
+				#createUserName#, 
+				#createTime#, 
+				#createIp#, 
+				#modifyUserId#, 
+				#modifyUserName#, 
+				#modifyTime#, 
+				#modifyIp#, 
+				#version#, 
+				#efficient#
+			)
+		]]>
+	</insert>
+
+	<!-- 通过ID修改 -->
+	<update id="update" parameterClass="tcsmMessagePushSetEntity">
+		<![CDATA[
+			UPDATE TCSM_MESSAGE_PUSH_SET SET
+				MAIN_SWITCH_STATUS = #mainSwitchStatus#, 
+				WEB_PUSH_SWITCH_STATUS = #webPushSwitchStatus#, 
+				APP_PUSH_SWITCH_STATUS = #appPushSwitchStatus#, 
+				SMS_PUSH_SWITCH_STATUS = #smsPushSwitchStatus#, 
+				TEL_PUSH_SWITCH_STATUS = #telPushSwitchStatus#, 
+				SAL_PUSH_SWITCH_STATUS = #salPushSwitchStatus#, 
+				DMB_PUSH_SWITCH_STATUS = #dmbPushSwitchStatus#, 
+				REMARK = #remark#, 
+				PROJECT_ID = #projectId#, 
+				MODIFY_USER_ID = #modifyUserId#, 
+				MODIFY_USER_NAME = #modifyUserName#, 
+				MODIFY_TIME = #modifyTime#, 
+				MODIFY_IP = #modifyIp#, 
+				VERSION = #version#, 
+				EFFICIENT = #efficient#
+			WHERE 
+				ID = #id#
+		]]>
+	</update>
+
+	<!-- 通过ID删除 -->
+	<delete id="delete">
+		<![CDATA[
+			DELETE FROM TCSM_MESSAGE_PUSH_SET WHERE
+			ID = #id#
+		]]>
+	</delete>
+
+	<!-- 通过ID列表批量删除 -->
+	<delete id="deleteByIds" parameterClass="java.lang.String">
+		<![CDATA[
+			DELETE FROM TCSM_MESSAGE_PUSH_SET WHERE
+			ID IN ($ids$)
+		]]>
+	</delete>
+
+	<!-- 通过ID查询 -->
+	<select id="getById" resultMap="tcsmMessagePushSet">
+		SELECT
+		<include refid="tcsmMessagePushSet.columns" />
+		<![CDATA[
+			FROM TCSM_MESSAGE_PUSH_SET 
+			WHERE 
+				ID = #id#
+		]]>
+	</select>
+
+	<!-- 用于查询抽取的公共的条件 -->
+	<sql id="tcsmMessagePushSet.queryParams">
+		<dynamic prepend="WHERE">
+			<isNotNull property="searchFilters">
+				<isNotEmpty prepend="AND"
+					property="searchFilters.id">
+					<![CDATA[
+					ID $searchFilters.id.operation$ #searchFilters.id.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.mainSwitchStatus">
+					<![CDATA[
+					MAIN_SWITCH_STATUS $searchFilters.mainSwitchStatus.operation$ #searchFilters.mainSwitchStatus.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.webPushSwitchStatus">
+					<![CDATA[
+					WEB_PUSH_SWITCH_STATUS $searchFilters.webPushSwitchStatus.operation$ #searchFilters.webPushSwitchStatus.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.appPushSwitchStatus">
+					<![CDATA[
+					APP_PUSH_SWITCH_STATUS $searchFilters.appPushSwitchStatus.operation$ #searchFilters.appPushSwitchStatus.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.smsPushSwitchStatus">
+					<![CDATA[
+					SMS_PUSH_SWITCH_STATUS $searchFilters.smsPushSwitchStatus.operation$ #searchFilters.smsPushSwitchStatus.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.telPushSwitchStatus">
+					<![CDATA[
+					TEL_PUSH_SWITCH_STATUS $searchFilters.telPushSwitchStatus.operation$ #searchFilters.telPushSwitchStatus.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.salPushSwitchStatus">
+					<![CDATA[
+					SAL_PUSH_SWITCH_STATUS $searchFilters.salPushSwitchStatus.operation$ #searchFilters.salPushSwitchStatus.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.dmbPushSwitchStatus">
+					<![CDATA[
+					DMB_PUSH_SWITCH_STATUS $searchFilters.dmbPushSwitchStatus.operation$ #searchFilters.dmbPushSwitchStatus.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.remark">
+					<![CDATA[
+					REMARK $searchFilters.remark.operation$ #searchFilters.remark.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.projectId">
+					<![CDATA[
+					PROJECT_ID $searchFilters.projectId.operation$ #searchFilters.projectId.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.createUserId">
+					<![CDATA[
+					CREATE_USER_ID $searchFilters.createUserId.operation$ #searchFilters.createUserId.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.createUserName">
+					<![CDATA[
+					CREATE_USER_NAME $searchFilters.createUserName.operation$ #searchFilters.createUserName.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.createTime">
+					<![CDATA[
+					CREATE_TIME $searchFilters.createTime.operation$ TO_DATE(#searchFilters.createTime.value#, 'yyyy-mm-dd hh24:mi:ss')
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.beginCreateTime">
+					<![CDATA[
+					CREATE_TIME $searchFilters.beginCreateTime.operation$ TO_DATE(#searchFilters.beginCreateTime.value#, 'yyyy-mm-dd hh24:mi:ss')
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.endCreateTime">
+					<![CDATA[
+					CREATE_TIME $searchFilters.endCreateTime.operation$ TO_DATE(#searchFilters.endCreateTime.value#, 'yyyy-mm-dd hh24:mi:ss')
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.createIp">
+					<![CDATA[
+					CREATE_IP $searchFilters.createIp.operation$ #searchFilters.createIp.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.modifyUserId">
+					<![CDATA[
+					MODIFY_USER_ID $searchFilters.modifyUserId.operation$ #searchFilters.modifyUserId.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.modifyUserName">
+					<![CDATA[
+					MODIFY_USER_NAME $searchFilters.modifyUserName.operation$ #searchFilters.modifyUserName.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.modifyTime">
+					<![CDATA[
+					MODIFY_TIME $searchFilters.modifyTime.operation$ TO_DATE(#searchFilters.modifyTime.value#, 'yyyy-mm-dd hh24:mi:ss')
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.beginModifyTime">
+					<![CDATA[
+					MODIFY_TIME $searchFilters.beginModifyTime.operation$ TO_DATE(#searchFilters.beginModifyTime.value#, 'yyyy-mm-dd hh24:mi:ss')
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.endModifyTime">
+					<![CDATA[
+					MODIFY_TIME $searchFilters.endModifyTime.operation$ TO_DATE(#searchFilters.endModifyTime.value#, 'yyyy-mm-dd hh24:mi:ss')
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.modifyIp">
+					<![CDATA[
+					MODIFY_IP $searchFilters.modifyIp.operation$ #searchFilters.modifyIp.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.version">
+					<![CDATA[
+					VERSION $searchFilters.version.operation$ #searchFilters.version.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.efficient">
+					<![CDATA[
+					EFFICIENT $searchFilters.efficient.operation$ #searchFilters.efficient.value#
+					]]>
+				</isNotEmpty>
+			</isNotNull>
+		</dynamic>
+		<dynamic prepend="ORDER BY">
+			<isNotNull property="orderColumn">
+				<![CDATA[
+				$orderColumn$
+				]]>
+				<isNotNull property="orderMode">
+					$orderMode$
+				</isNotNull>
+			</isNotNull>
+		</dynamic>
+	</sql>
+
+	<!-- 为分页查询符合条件的记录数 -->
+	<select id="queryByPage_count" resultClass="int">
+		SELECT count(*) FROM TCSM_MESSAGE_PUSH_SET
+		<include refid="tcsmMessagePushSet.queryParams" />
+	</select>
+
+	<!-- 分页查询指定页记录 -->
+	<select id="queryByPage" resultMap="tcsmMessagePushSet">
+		SELECT * FROM (
+		SELECT ROWNUM RN, T.* FROM (
+		SELECT
+		<include refid="tcsmMessagePushSet.columns" />
+		<![CDATA[
+			FROM TCSM_MESSAGE_PUSH_SET 
+		]]>
+		<include refid="tcsmMessagePushSet.queryParams" />
+		) T ) WHERE
+		<![CDATA[
+			RN > $paging.startRecord$ AND RN <= $paging.startRecord$ + $paging.pageSize$
+		]]>
+	</select>
+
+	<!-- 查询所有记录 -->
+	<select id="queryAll" resultMap="tcsmMessagePushSet">
+		SELECT
+		<include refid="tcsmMessagePushSet.columns" />
+		<![CDATA[
+			FROM TCSM_MESSAGE_PUSH_SET
+		]]>
+		<include refid="tcsmMessagePushSet.queryParams" />
+	</select>
+</sqlMap>

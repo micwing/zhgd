@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-lazy-init="true"
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="  
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.1.xsd
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd 
+			http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.1.xsd 
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd">
+
+	<bean id="commonDatasource" abstract="true">
+		<property name="removeAbandoned" value="true" /> <!--1.如果开启了removeAbandoned，当getNumIdle() < 2) and (getNumActive() > getMaxActive() 
+			- 3)时被触发. -->
+		<property name="removeAbandonedTimeout" value="180" />
+		<!--<property name="logAbandoned" value="true" /> -->
+		<property name="testOnBorrow" value="true" />
+		<property name="testOnReturn" value="true" />
+		<property name="validationQuery"
+			value="select count(1) from dual" />
+	</bean>
+
+	<!-- 数据源配置 -->
+	<bean id="defaultDataSource"
+		class="org.apache.commons.dbcp.BasicDataSource"
+		parent="commonDatasource" destroy-method="close">
+		<property name="driverClassName"
+			value="${jdbc.driverClassName}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<property name="maxActive" value="${jdbc.maxActive}" />
+		<property name="maxIdle" value="${jdbc.maxIdle}" />
+		<property name="minIdle" value="${jdbc.minIdle}" />
+		<property name="maxWait" value="${jdbc.maxWait}" />
+	</bean>
+	<!-- 配置事务管理器 -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="defaultDataSource" />
+	</bean>
+
+	<tx:annotation-driven />
+
+	<bean id="commonSqlMapClient" abstract="true">
+		<property name="configLocations">
+			<list>
+				<value>classpath:sqlMapConfig.xml</value>
+			</list>
+		</property>
+	</bean>
+	<!-- 目前读写不分离，读写使用同一个source -->
+	<bean id="sqlMapClient"
+		class="org.springframework.orm.ibatis.SqlMapClientFactoryBean"
+		parent="commonSqlMapClient">
+		<property name="dataSource" ref="defaultDataSource" />
+	</bean>
+
+	<!-- MyBatis配置 -->
+	<bean id="sqlSessionFactory"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="defaultDataSource" />
+		<property name="mapperLocations"
+			value="classpath*:/mybatis/*.xml" />
+		<property name="typeAliasesPackage"
+			value="com.zhhw.znh.yfb.tcsm.beans.po" />
+	</bean>
+
+	<bean id="sqlSession"
+		class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="sqlSessionFactory" />
+		<constructor-arg index="1" value="BATCH" />
+	</bean>
+
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage"
+			value="com.zhhw.znh.yfb.tcsm.ws.dao.mapper" />
+	</bean>
+</beans>

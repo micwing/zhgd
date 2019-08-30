@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" 
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="com.zhhw.znh.yfb.tcsm.beans.entity.TcvrDeviceInfoEntity">
+	<typeAlias alias="tcvrDeviceInfoEntity" type="com.zhhw.znh.yfb.tcsm.beans.entity.TcvrDeviceInfoEntity" />
+	<resultMap id="tcvrDeviceInfo" class="com.zhhw.znh.yfb.tcsm.beans.entity.TcvrDeviceInfoEntity">
+		<result property="id" column="ID" />
+		<result property="tcsmId" column="TCSM_ID" />
+		<result property="deviceStatus" column="DEVICE_STATUS" />
+		<result property="deveiceName" column="DEVEICE_NAME" />
+		<result property="deveiceIp" column="DEVEICE_IP" />
+		<result property="deveicePort" column="DEVEICE_PORT" />
+		<result property="deveiceUserName" column="DEVEICE_USER_NAME" />
+		<result property="deveicePassword" column="DEVEICE_PASSWORD" />
+		<result property="deviceVedioFrom" column="DEVICE_VEDIO_FROM" />
+		<result property="deveicePosition" column="DEVEICE_POSITION" />
+		<result property="deviceLon" column="DEVICE_LON" />
+		<result property="deviceLat" column="DEVICE_LAT" />
+		<result property="positionx" column="POSITIONX" />
+		<result property="positiony" column="POSITIONY" />
+		<result property="videoUrl" column="VIDEO_URL" />
+		<result property="deveicePerson" column="DEVEICE_PERSON" />
+		<result property="deveicePersonPhone" column="DEVEICE_PERSON_PHONE" />
+		<result property="remark" column="REMARK" />
+		<result property="projectId" column="PROJECT_ID" />
+		<result property="projectName" column="PROJECT_NAME" />
+		<result property="createUserId" column="CREATE_USER_ID" />
+		<result property="createUserName" column="CREATE_USER_NAME" />
+		<result property="createTime" column="CREATE_TIME" />
+		<result property="createIp" column="CREATE_IP" />
+		<result property="modifyUserId" column="MODIFY_USER_ID" />
+		<result property="modifyUserName" column="MODIFY_USER_NAME" />
+		<result property="modifyTime" column="MODIFY_TIME" />
+		<result property="modifyIp" column="MODIFY_IP" />
+		<result property="version" column="VERSION" />
+		<result property="efficient" column="EFFICIENT" />
+	</resultMap>
+
+	<!-- 用于select查询公用抽取的列 -->
+	<sql id="tcvrDeviceInfo.columns">
+		<![CDATA[
+		ID, TCSM_ID, DEVICE_STATUS, DEVEICE_NAME, DEVEICE_IP, DEVEICE_PORT, DEVEICE_USER_NAME, DEVEICE_PASSWORD, DEVICE_VEDIO_FROM, DEVEICE_POSITION, DEVICE_LON, DEVICE_LAT, POSITIONX, POSITIONY, VIDEO_URL, DEVEICE_PERSON, DEVEICE_PERSON_PHONE, REMARK, PROJECT_ID, PROJECT_NAME, CREATE_USER_ID, CREATE_USER_NAME, CREATE_TIME, CREATE_IP, MODIFY_USER_ID, MODIFY_USER_NAME, MODIFY_TIME, MODIFY_IP, VERSION, EFFICIENT
+		]]>
+	</sql>
+
+	<!-- 新增记录 -->
+	<insert id="save" parameterClass="tcvrDeviceInfoEntity">
+		<![CDATA[
+			INSERT INTO TCVR_DEVICE_INFO (
+				ID, 
+				TCSM_ID, 
+				DEVICE_STATUS, 
+				DEVEICE_NAME, 
+				DEVEICE_IP, 
+				DEVEICE_PORT, 
+				DEVEICE_USER_NAME, 
+				DEVEICE_PASSWORD, 
+				DEVICE_VEDIO_FROM, 
+				DEVEICE_POSITION, 
+				DEVICE_LON, 
+				DEVICE_LAT, 
+				POSITIONX, 
+				POSITIONY, 
+				VIDEO_URL, 
+				DEVEICE_PERSON, 
+				DEVEICE_PERSON_PHONE, 
+				REMARK, 
+				PROJECT_ID, 
+				PROJECT_NAME, 
+				CREATE_USER_ID, 
+				CREATE_USER_NAME, 
+				CREATE_TIME, 
+				CREATE_IP, 
+				MODIFY_USER_ID, 
+				MODIFY_USER_NAME, 
+				MODIFY_TIME, 
+				MODIFY_IP, 
+				VERSION, 
+				EFFICIENT
+			) VALUES (
+				#id#, 
+				#tcsmId#, 
+				#deviceStatus#, 
+				#deveiceName#, 
+				#deveiceIp#, 
+				#deveicePort#, 
+				#deveiceUserName#, 
+				#deveicePassword#, 
+				#deviceVedioFrom#, 
+				#deveicePosition#, 
+				#deviceLon#, 
+				#deviceLat#, 
+				#positionx#, 
+				#positiony#, 
+				#videoUrl#, 
+				#deveicePerson#, 
+				#deveicePersonPhone#, 
+				#remark#, 
+				#projectId#, 
+				#projectName#, 
+				#createUserId#, 
+				#createUserName#, 
+				#createTime#, 
+				#createIp#, 
+				#modifyUserId#, 
+				#modifyUserName#, 
+				#modifyTime#, 
+				#modifyIp#, 
+				#version#, 
+				#efficient#
+			)
+		]]>
+	</insert>
+
+	<!-- 新增记录 -->
+	<insert id="insert" parameterClass="tcvrDeviceInfoEntity">
+		<![CDATA[
+			INSERT INTO TCVR_DEVICE_INFO (
+				ID, 
+				TCSM_ID, 
+				DEVICE_STATUS, 
+				DEVEICE_NAME, 
+				DEVEICE_IP, 
+				DEVEICE_PORT, 
+				DEVEICE_USER_NAME, 
+				DEVEICE_PASSWORD, 
+				DEVICE_VEDIO_FROM, 
+				DEVEICE_POSITION, 
+				DEVICE_LON, 
+				DEVICE_LAT, 
+				POSITIONX, 
+				POSITIONY, 
+				VIDEO_URL, 
+				DEVEICE_PERSON, 
+				DEVEICE_PERSON_PHONE, 
+				REMARK, 
+				PROJECT_ID, 
+				PROJECT_NAME, 
+				CREATE_USER_ID, 
+				CREATE_USER_NAME, 
+				CREATE_TIME, 
+				CREATE_IP, 
+				MODIFY_USER_ID, 
+				MODIFY_USER_NAME, 
+				MODIFY_TIME, 
+				MODIFY_IP, 
+				VERSION, 
+				EFFICIENT
+			) VALUES (
+				#id#, 
+				#tcsmId#, 
+				#deviceStatus#, 
+				#deveiceName#, 
+				#deveiceIp#, 
+				#deveicePort#, 
+				#deveiceUserName#, 
+				#deveicePassword#, 
+				#deviceVedioFrom#, 
+				#deveicePosition#, 
+				#deviceLon#, 
+				#deviceLat#, 
+				#positionx#, 
+				#positiony#, 
+				#videoUrl#, 
+				#deveicePerson#, 
+				#deveicePersonPhone#, 
+				#remark#, 
+				#projectId#, 
+				#projectName#, 
+				#createUserId#, 
+				#createUserName#, 
+				#createTime#, 
+				#createIp#, 
+				#modifyUserId#, 
+				#modifyUserName#, 
+				#modifyTime#, 
+				#modifyIp#, 
+				#version#, 
+				#efficient#
+			)
+		]]>
+	</insert>
+
+	<!-- 通过ID修改 -->
+	<update id="update" parameterClass="tcvrDeviceInfoEntity">
+		<![CDATA[
+			UPDATE TCVR_DEVICE_INFO SET
+				TCSM_ID = #tcsmId#, 
+				DEVICE_STATUS = #deviceStatus#, 
+				DEVEICE_NAME = #deveiceName#, 
+				DEVEICE_IP = #deveiceIp#, 
+				DEVEICE_PORT = #deveicePort#, 
+				DEVEICE_USER_NAME = #deveiceUserName#, 
+				DEVEICE_PASSWORD = #deveicePassword#, 
+				DEVICE_VEDIO_FROM = #deviceVedioFrom#, 
+				DEVEICE_POSITION = #deveicePosition#, 
+				DEVICE_LON = #deviceLon#, 
+				DEVICE_LAT = #deviceLat#, 
+				POSITIONX = #positionx#, 
+				POSITIONY = #positiony#, 
+				VIDEO_URL = #videoUrl#, 
+				DEVEICE_PERSON = #deveicePerson#, 
+				DEVEICE_PERSON_PHONE = #deveicePersonPhone#, 
+				REMARK = #remark#, 
+				PROJECT_ID = #projectId#, 
+				PROJECT_NAME = #projectName#, 
+				MODIFY_USER_ID = #modifyUserId#, 
+				MODIFY_USER_NAME = #modifyUserName#, 
+				MODIFY_TIME = #modifyTime#, 
+				MODIFY_IP = #modifyIp#, 
+				VERSION = #version#, 
+				EFFICIENT = #efficient#
+			WHERE 
+				ID = #id#
+		]]>
+	</update>
+
+	<!-- 通过ID删除 -->
+	<delete id="delete">
+		<![CDATA[
+			DELETE FROM TCVR_DEVICE_INFO WHERE
+			ID = #id#
+		]]>
+	</delete>
+
+	<!-- 通过ID列表批量删除 -->
+	<delete id="deleteByIds" parameterClass="java.lang.String">
+		<![CDATA[
+			DELETE FROM TCVR_DEVICE_INFO WHERE
+			ID IN ($ids$)
+		]]>
+	</delete>
+
+	<!-- 通过ID查询 -->
+	<select id="getById" resultMap="tcvrDeviceInfo">
+		SELECT
+		<include refid="tcvrDeviceInfo.columns" />
+		<![CDATA[
+			FROM TCVR_DEVICE_INFO 
+			WHERE 
+				ID = #id#
+		]]>
+	</select>
+
+	<!-- 用于查询抽取的公共的条件 -->
+	<sql id="tcvrDeviceInfo.queryParams">
+		<dynamic prepend="WHERE">
+			<isNotNull property="searchFilters">
+				<isNotEmpty prepend="AND"
+					property="searchFilters.id">
+					<![CDATA[
+					ID $searchFilters.id.operation$ #searchFilters.id.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.tcsmId">
+					<![CDATA[
+					TCSM_ID $searchFilters.tcsmId.operation$ #searchFilters.tcsmId.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.deviceStatus">
+					<![CDATA[
+					DEVICE_STATUS $searchFilters.deviceStatus.operation$ #searchFilters.deviceStatus.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.deveiceName">
+					<![CDATA[
+					DEVEICE_NAME $searchFilters.deveiceName.operation$ #searchFilters.deveiceName.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.deveiceIp">
+					<![CDATA[
+					DEVEICE_IP $searchFilters.deveiceIp.operation$ #searchFilters.deveiceIp.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.deveicePort">
+					<![CDATA[
+					DEVEICE_PORT $searchFilters.deveicePort.operation$ #searchFilters.deveicePort.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.deveiceUserName">
+					<![CDATA[
+					DEVEICE_USER_NAME $searchFilters.deveiceUserName.operation$ #searchFilters.deveiceUserName.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.deveicePassword">
+					<![CDATA[
+					DEVEICE_PASSWORD $searchFilters.deveicePassword.operation$ #searchFilters.deveicePassword.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.deviceVedioFrom">
+					<![CDATA[
+					DEVICE_VEDIO_FROM $searchFilters.deviceVedioFrom.operation$ #searchFilters.deviceVedioFrom.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.deveicePosition">
+					<![CDATA[
+					DEVEICE_POSITION $searchFilters.deveicePosition.operation$ #searchFilters.deveicePosition.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.deviceLon">
+					<![CDATA[
+					DEVICE_LON $searchFilters.deviceLon.operation$ #searchFilters.deviceLon.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.deviceLat">
+					<![CDATA[
+					DEVICE_LAT $searchFilters.deviceLat.operation$ #searchFilters.deviceLat.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.positionx">
+					<![CDATA[
+					POSITIONX $searchFilters.positionx.operation$ #searchFilters.positionx.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.positiony">
+					<![CDATA[
+					POSITIONY $searchFilters.positiony.operation$ #searchFilters.positiony.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.videoUrl">
+					<![CDATA[
+					VIDEO_URL $searchFilters.videoUrl.operation$ #searchFilters.videoUrl.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.deveicePerson">
+					<![CDATA[
+					DEVEICE_PERSON $searchFilters.deveicePerson.operation$ #searchFilters.deveicePerson.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.deveicePersonPhone">
+					<![CDATA[
+					DEVEICE_PERSON_PHONE $searchFilters.deveicePersonPhone.operation$ #searchFilters.deveicePersonPhone.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.remark">
+					<![CDATA[
+					REMARK $searchFilters.remark.operation$ #searchFilters.remark.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.projectId">
+					<![CDATA[
+					PROJECT_ID $searchFilters.projectId.operation$ #searchFilters.projectId.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.projectName">
+					<![CDATA[
+					PROJECT_NAME $searchFilters.projectName.operation$ #searchFilters.projectName.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.createUserId">
+					<![CDATA[
+					CREATE_USER_ID $searchFilters.createUserId.operation$ #searchFilters.createUserId.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.createUserName">
+					<![CDATA[
+					CREATE_USER_NAME $searchFilters.createUserName.operation$ #searchFilters.createUserName.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.createTime">
+					<![CDATA[
+					CREATE_TIME $searchFilters.createTime.operation$ TO_DATE(#searchFilters.createTime.value#, 'yyyy-mm-dd hh24:mi:ss')
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.beginCreateTime">
+					<![CDATA[
+					CREATE_TIME $searchFilters.beginCreateTime.operation$ TO_DATE(#searchFilters.beginCreateTime.value#, 'yyyy-mm-dd hh24:mi:ss')
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.endCreateTime">
+					<![CDATA[
+					CREATE_TIME $searchFilters.endCreateTime.operation$ TO_DATE(#searchFilters.endCreateTime.value#, 'yyyy-mm-dd hh24:mi:ss')
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.createIp">
+					<![CDATA[
+					CREATE_IP $searchFilters.createIp.operation$ #searchFilters.createIp.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.modifyUserId">
+					<![CDATA[
+					MODIFY_USER_ID $searchFilters.modifyUserId.operation$ #searchFilters.modifyUserId.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.modifyUserName">
+					<![CDATA[
+					MODIFY_USER_NAME $searchFilters.modifyUserName.operation$ #searchFilters.modifyUserName.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.modifyTime">
+					<![CDATA[
+					MODIFY_TIME $searchFilters.modifyTime.operation$ TO_DATE(#searchFilters.modifyTime.value#, 'yyyy-mm-dd hh24:mi:ss')
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.beginModifyTime">
+					<![CDATA[
+					MODIFY_TIME $searchFilters.beginModifyTime.operation$ TO_DATE(#searchFilters.beginModifyTime.value#, 'yyyy-mm-dd hh24:mi:ss')
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.endModifyTime">
+					<![CDATA[
+					MODIFY_TIME $searchFilters.endModifyTime.operation$ TO_DATE(#searchFilters.endModifyTime.value#, 'yyyy-mm-dd hh24:mi:ss')
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.modifyIp">
+					<![CDATA[
+					MODIFY_IP $searchFilters.modifyIp.operation$ #searchFilters.modifyIp.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.version">
+					<![CDATA[
+					VERSION $searchFilters.version.operation$ #searchFilters.version.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.efficient">
+					<![CDATA[
+					EFFICIENT $searchFilters.efficient.operation$ #searchFilters.efficient.value#
+					]]>
+				</isNotEmpty>
+			</isNotNull>
+		</dynamic>
+		<dynamic prepend="ORDER BY">
+			<isNotNull property="orderColumn">
+				<![CDATA[
+				$orderColumn$
+				]]>
+				<isNotNull property="orderMode">
+					$orderMode$
+				</isNotNull>
+			</isNotNull>
+		</dynamic>
+	</sql>
+
+	<!-- 为分页查询符合条件的记录数 -->
+	<select id="queryByPage_count" resultClass="int">
+		SELECT count(*) FROM TCVR_DEVICE_INFO
+		<include refid="tcvrDeviceInfo.queryParams" />
+	</select>
+
+	<!-- 分页查询指定页记录 -->
+	<select id="queryByPage" resultMap="tcvrDeviceInfo">
+		SELECT * FROM (
+		SELECT ROWNUM RN, T.* FROM (
+		SELECT
+		<include refid="tcvrDeviceInfo.columns" />
+		<![CDATA[
+			FROM TCVR_DEVICE_INFO 
+		]]>
+		<include refid="tcvrDeviceInfo.queryParams" />
+		) T ) WHERE
+		<![CDATA[
+			RN > $paging.startRecord$ AND RN <= $paging.startRecord$ + $paging.pageSize$
+		]]>
+	</select>
+
+	<!-- 查询所有记录 -->
+	<select id="queryAll" resultMap="tcvrDeviceInfo">
+		SELECT
+		<include refid="tcvrDeviceInfo.columns" />
+		<![CDATA[
+			FROM TCVR_DEVICE_INFO
+		]]>
+		<include refid="tcvrDeviceInfo.queryParams" />
+	</select>
+</sqlMap>

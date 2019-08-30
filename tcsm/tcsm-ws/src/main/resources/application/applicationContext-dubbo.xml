@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+	<!-- 提供方应用信息，用于计算依赖关系 -->
+	<dubbo:application name="${dubbo.application.name}" />
+
+	<!-- 使用multicast广播注册中心暴露服务地址 -->
+	<!-- 配置dubbo缓存文件路径，不能默认，若默认，多个项目的缓存路径一样，会起冲突 -->
+	<dubbo:registry protocol="zookeeper"
+		address="${dubbo.zookeeper.address}" client="zkclient"
+		file="${catalina.home}/dubbo/${dubbo.application.name}.cache" />
+
+	<!-- 用dubbo协议在20880端口暴露服务 -->
+	<dubbo:protocol name="dubbo"
+		port="${dubbo.application.port}" />
+
+	<!-- 不检查服务是否有provider，待provider启动后，会被cousumer自动发现 -->
+	<dubbo:consumer check="false" retries="0" />
+
+	<!-- 以下为代码生成器自动生成 -->
+	<dubbo:service interface="com.zhhw.znh.yfb.tcsm.ws.interfaces.ITcsmDeviceAlarm" ref="tcsmDeviceAlarm" timeout="5000" version="${dubbo.app.version}" />
+	<dubbo:service interface="com.zhhw.znh.yfb.tcsm.ws.interfaces.ITcsmDeviceDriverRel" ref="tcsmDeviceDriverRel" timeout="5000" version="${dubbo.app.version}" />
+	<dubbo:service interface="com.zhhw.znh.yfb.tcsm.ws.interfaces.ITcsmDeviceInfo" ref="tcsmDeviceInfo" timeout="5000" version="${dubbo.app.version}" />
+	<dubbo:service interface="com.zhhw.znh.yfb.tcsm.ws.interfaces.ITcsmDriverInfo" ref="tcsmDriverInfo" timeout="5000" version="${dubbo.app.version}" />
+	<dubbo:service interface="com.zhhw.znh.yfb.tcsm.ws.interfaces.ITcsmSnapCurrent" ref="tcsmSnapCurrent" timeout="5000" version="${dubbo.app.version}" />
+	<dubbo:service interface="com.zhhw.znh.yfb.tcsm.ws.interfaces.ITcsmSnapHeartbeat" ref="tcsmSnapHeartbeat" timeout="5000" version="${dubbo.app.version}" />
+	<dubbo:service interface="com.zhhw.znh.yfb.tcsm.ws.interfaces.ITcsmSnapParam" ref="tcsmSnapParam" timeout="5000" version="${dubbo.app.version}" />
+	
+	<dubbo:service interface="com.zhhw.znh.yfb.tcsm.ws.interfaces.ITcvrDeviceInfo" ref="tcvrDeviceInfo" timeout="5000" version="${dubbo.app.version}" />
+	
+	<dubbo:service interface="com.zhhw.znh.yfb.tcsm.ws.interfaces.ITcsmMessageGroupRecord" ref="tcsmMessageGroupRecord" timeout="5000" version="${dubbo.app.version}" />
+	<dubbo:service interface="com.zhhw.znh.yfb.tcsm.ws.interfaces.ITcsmMessagePushPerson" ref="tcsmMessagePushPerson" timeout="5000" version="${dubbo.app.version}" />
+	<dubbo:service interface="com.zhhw.znh.yfb.tcsm.ws.interfaces.ITcsmMessagePushSet" ref="tcsmMessagePushSet" timeout="5000" version="${dubbo.app.version}" />
+	<dubbo:service interface="com.zhhw.znh.yfb.tcsm.ws.interfaces.ITcsmMessageGroupPush" ref="tcsmMessageGroupPush" timeout="5000" version="${dubbo.app.version}" />
+	<dubbo:service interface="com.zhhw.znh.yfb.tcsm.ws.interfaces.ITcsmMessagePersonRecord" ref="tcsmMessagePersonRecord" timeout="5000" version="${dubbo.app.version}" />
+	
+	<dubbo:service interface="com.zhhw.znh.yfb.tcsm.ws.interfaces.ITcsmApi" ref="tcsmApi" timeout="5000" version="${dubbo.app.version}" />
+	
+	<!-- 以上为代码生成器自动生成 -->
+</beans>

@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" 
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="com.zhhw.znh.yfb.tcsm.beans.entity.TcsmSnapHeartbeatEntity">
+	<typeAlias alias="tcsmSnapHeartbeatEntity" type="com.zhhw.znh.yfb.tcsm.beans.entity.TcsmSnapHeartbeatEntity" />
+	<resultMap id="tcsmSnapHeartbeat" class="com.zhhw.znh.yfb.tcsm.beans.entity.TcsmSnapHeartbeatEntity">
+		<result property="id" column="ID" />
+		<result property="sendcompany" column="SENDCOMPANY" />
+		<result property="acceptcompany" column="ACCEPTCOMPANY" />
+		<result property="operationType" column="OPERATION_TYPE" />
+		<result property="appType" column="APP_TYPE" />
+		<result property="sn" column="SN" />
+		<result property="onlinetime" column="ONLINETIME" />
+		<result property="createTime" column="CREATE_TIME" />
+		<result property="projectId" column="PROJECT_ID" />
+	</resultMap>
+
+	<!-- 用于select查询公用抽取的列 -->
+	<sql id="tcsmSnapHeartbeat.columns">
+		<![CDATA[
+		ID, SENDCOMPANY, ACCEPTCOMPANY, OPERATION_TYPE, APP_TYPE, SN, ONLINETIME, CREATE_TIME, PROJECT_ID
+		]]>
+	</sql>
+
+	<!-- 新增记录 -->
+	<insert id="save" parameterClass="tcsmSnapHeartbeatEntity">
+		<![CDATA[
+			INSERT INTO TCSM_SNAP_HEARTBEAT (
+				ID, 
+				SENDCOMPANY, 
+				ACCEPTCOMPANY, 
+				OPERATION_TYPE, 
+				APP_TYPE, 
+				SN, 
+				ONLINETIME, 
+				CREATE_TIME, 
+				PROJECT_ID
+			) VALUES (
+				#id#, 
+				#sendcompany#, 
+				#acceptcompany#, 
+				#operationType#, 
+				#appType#, 
+				#sn#, 
+				#onlinetime#, 
+				#createTime#, 
+				#projectId#
+			)
+		]]>
+	</insert>
+
+	<!-- 新增记录 -->
+	<insert id="insert" parameterClass="tcsmSnapHeartbeatEntity">
+		<![CDATA[
+			INSERT INTO TCSM_SNAP_HEARTBEAT (
+				ID, 
+				SENDCOMPANY, 
+				ACCEPTCOMPANY, 
+				OPERATION_TYPE, 
+				APP_TYPE, 
+				SN, 
+				ONLINETIME, 
+				CREATE_TIME, 
+				PROJECT_ID
+			) VALUES (
+				#id#, 
+				#sendcompany#, 
+				#acceptcompany#, 
+				#operationType#, 
+				#appType#, 
+				#sn#, 
+				#onlinetime#, 
+				#createTime#, 
+				#projectId#
+			)
+		]]>
+	</insert>
+
+	<!-- 通过ID修改 -->
+	<update id="update" parameterClass="tcsmSnapHeartbeatEntity">
+		<![CDATA[
+			UPDATE TCSM_SNAP_HEARTBEAT SET
+				SENDCOMPANY = #sendcompany#, 
+				ACCEPTCOMPANY = #acceptcompany#, 
+				OPERATION_TYPE = #operationType#, 
+				APP_TYPE = #appType#, 
+				SN = #sn#, 
+				ONLINETIME = #onlinetime#, 
+				CREATE_TIME = #createTime#, 
+				PROJECT_ID = #projectId#
+			WHERE 
+				ID = #id#
+		]]>
+	</update>
+
+	<!-- 通过ID删除 -->
+	<delete id="delete">
+		<![CDATA[
+			DELETE FROM TCSM_SNAP_HEARTBEAT WHERE
+			ID = #id#
+		]]>
+	</delete>
+
+	<!-- 通过ID列表批量删除 -->
+	<delete id="deleteByIds" parameterClass="java.lang.String">
+		<![CDATA[
+			DELETE FROM TCSM_SNAP_HEARTBEAT WHERE
+			ID IN ($ids$)
+		]]>
+	</delete>
+
+	<!-- 通过ID查询 -->
+	<select id="getById" resultMap="tcsmSnapHeartbeat">
+		SELECT
+		<include refid="tcsmSnapHeartbeat.columns" />
+		<![CDATA[
+			FROM TCSM_SNAP_HEARTBEAT 
+			WHERE 
+				ID = #id#
+		]]>
+	</select>
+
+	<!-- 用于查询抽取的公共的条件 -->
+	<sql id="tcsmSnapHeartbeat.queryParams">
+		<dynamic prepend="WHERE">
+			<isNotNull property="searchFilters">
+				<isNotEmpty prepend="AND"
+					property="searchFilters.id">
+					<![CDATA[
+					ID $searchFilters.id.operation$ #searchFilters.id.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.sendcompany">
+					<![CDATA[
+					SENDCOMPANY $searchFilters.sendcompany.operation$ #searchFilters.sendcompany.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.acceptcompany">
+					<![CDATA[
+					ACCEPTCOMPANY $searchFilters.acceptcompany.operation$ #searchFilters.acceptcompany.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.operationType">
+					<![CDATA[
+					OPERATION_TYPE $searchFilters.operationType.operation$ #searchFilters.operationType.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.appType">
+					<![CDATA[
+					APP_TYPE $searchFilters.appType.operation$ #searchFilters.appType.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.sn">
+					<![CDATA[
+					SN $searchFilters.sn.operation$ #searchFilters.sn.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.onlinetime">
+					<![CDATA[
+					ONLINETIME $searchFilters.onlinetime.operation$ #searchFilters.onlinetime.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.createTime">
+					<![CDATA[
+					CREATE_TIME $searchFilters.createTime.operation$ TO_DATE(#searchFilters.createTime.value#, 'yyyy-mm-dd hh24:mi:ss')
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.beginCreateTime">
+					<![CDATA[
+					CREATE_TIME $searchFilters.beginCreateTime.operation$ TO_DATE(#searchFilters.beginCreateTime.value#, 'yyyy-mm-dd hh24:mi:ss')
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.endCreateTime">
+					<![CDATA[
+					CREATE_TIME $searchFilters.endCreateTime.operation$ TO_DATE(#searchFilters.endCreateTime.value#, 'yyyy-mm-dd hh24:mi:ss')
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.projectId">
+					<![CDATA[
+					PROJECT_ID $searchFilters.projectId.operation$ #searchFilters.projectId.value#
+					]]>
+				</isNotEmpty>
+			</isNotNull>
+		</dynamic>
+		<dynamic prepend="ORDER BY">
+			<isNotNull property="orderColumn">
+				<![CDATA[
+				$orderColumn$
+				]]>
+				<isNotNull property="orderMode">
+					$orderMode$
+				</isNotNull>
+			</isNotNull>
+		</dynamic>
+	</sql>
+
+	<!-- 为分页查询符合条件的记录数 -->
+	<select id="queryByPage_count" resultClass="int">
+		SELECT count(*) FROM TCSM_SNAP_HEARTBEAT
+		<include refid="tcsmSnapHeartbeat.queryParams" />
+	</select>
+
+	<!-- 分页查询指定页记录 -->
+	<select id="queryByPage" resultMap="tcsmSnapHeartbeat">
+		SELECT * FROM (
+		SELECT ROWNUM RN, T.* FROM (
+		SELECT
+		<include refid="tcsmSnapHeartbeat.columns" />
+		<![CDATA[
+			FROM TCSM_SNAP_HEARTBEAT 
+		]]>
+		<include refid="tcsmSnapHeartbeat.queryParams" />
+		) T ) WHERE
+		<![CDATA[
+			RN > $paging.startRecord$ AND RN <= $paging.startRecord$ + $paging.pageSize$
+		]]>
+	</select>
+
+	<!-- 查询所有记录 -->
+	<select id="queryAll" resultMap="tcsmSnapHeartbeat">
+		SELECT
+		<include refid="tcsmSnapHeartbeat.columns" />
+		<![CDATA[
+			FROM TCSM_SNAP_HEARTBEAT
+		]]>
+		<include refid="tcsmSnapHeartbeat.queryParams" />
+	</select>
+</sqlMap>

@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" 
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="com.zhhw.znh.yfb.tcsm.beans.entity.TcsmSnapCurrentEntity">
+	<typeAlias alias="tcsmSnapCurrentEntity" type="com.zhhw.znh.yfb.tcsm.beans.entity.TcsmSnapCurrentEntity" />
+	<resultMap id="tcsmSnapCurrent" class="com.zhhw.znh.yfb.tcsm.beans.entity.TcsmSnapCurrentEntity">
+		<result property="id" column="ID" />
+		<result property="sendcompany" column="SENDCOMPANY" />
+		<result property="acceptcompany" column="ACCEPTCOMPANY" />
+		<result property="operationType" column="OPERATION_TYPE" />
+		<result property="appType" column="APP_TYPE" />
+		<result property="craneno" column="CRANENO" />
+		<result property="card" column="CARD" />
+		<result property="year" column="YEAR" />
+		<result property="mouth" column="MOUTH" />
+		<result property="day" column="DAY" />
+		<result property="hour" column="HOUR" />
+		<result property="minute" column="MINUTE" />
+		<result property="second" column="SECOND" />
+		<result property="geocoordinatey" column="GEOCOORDINATEY" />
+		<result property="geocoordinatex" column="GEOCOORDINATEX" />
+		<result property="height" column="HEIGHT" />
+		<result property="amplitude" column="AMPLITUDE" />
+		<result property="rotary" column="ROTARY" />
+		<result property="heavy" column="HEAVY" />
+		<result property="windspeed" column="WINDSPEED" />
+		<result property="anglex" column="ANGLEX" />
+		<result property="angley" column="ANGLEY" />
+		<result property="safetorque" column="SAFETORQUE" />
+		<result property="safeweight" column="SAFEWEIGHT" />
+		<result property="currentrate" column="CURRENTRATE" />
+		<result property="reserve" column="RESERVE" />
+		<result property="powerstatu" column="POWERSTATU" />
+		<result property="sensorstatus" column="SENSORSTATUS" />
+		<result property="warntype" column="WARNTYPE" />
+		<result property="alertflag" column="ALERTFLAG" />
+		<result property="createTime" column="CREATE_TIME" />
+		<result property="powerstatuDesc" column="POWERSTATU_DESC" />
+		<result property="sensorstatusDesc" column="SENSORSTATUS_DESC" />
+		<result property="warntypeDesc" column="WARNTYPE_DESC" />
+		<result property="alertflagDesc" column="ALERTFLAG_DESC" />
+		<result property="projectId" column="PROJECT_ID" />
+	</resultMap>
+
+	<!-- 用于select查询公用抽取的列 -->
+	<sql id="tcsmSnapCurrent.columns">
+		<![CDATA[
+		ID, SENDCOMPANY, ACCEPTCOMPANY, OPERATION_TYPE, APP_TYPE, CRANENO, CARD, YEAR, MOUTH, DAY, HOUR, MINUTE, SECOND, GEOCOORDINATEY, GEOCOORDINATEX, HEIGHT, AMPLITUDE, ROTARY, HEAVY, WINDSPEED, ANGLEX, ANGLEY, SAFETORQUE, SAFEWEIGHT, CURRENTRATE, RESERVE, POWERSTATU, SENSORSTATUS, WARNTYPE, ALERTFLAG, CREATE_TIME, POWERSTATU_DESC, SENSORSTATUS_DESC, WARNTYPE_DESC, ALERTFLAG_DESC, PROJECT_ID
+		]]>
+	</sql>
+
+	<!-- 新增记录 -->
+	<insert id="save" parameterClass="tcsmSnapCurrentEntity">
+		<![CDATA[
+			INSERT INTO TCSM_SNAP_CURRENT (
+				ID, 
+				SENDCOMPANY, 
+				ACCEPTCOMPANY, 
+				OPERATION_TYPE, 
+				APP_TYPE, 
+				CRANENO, 
+				CARD, 
+				YEAR, 
+				MOUTH, 
+				DAY, 
+				HOUR, 
+				MINUTE, 
+				SECOND, 
+				GEOCOORDINATEY, 
+				GEOCOORDINATEX, 
+				HEIGHT, 
+				AMPLITUDE, 
+				ROTARY, 
+				HEAVY, 
+				WINDSPEED, 
+				ANGLEX, 
+				ANGLEY, 
+				SAFETORQUE, 
+				SAFEWEIGHT, 
+				CURRENTRATE, 
+				RESERVE, 
+				POWERSTATU, 
+				SENSORSTATUS, 
+				WARNTYPE, 
+				ALERTFLAG, 
+				CREATE_TIME, 
+				POWERSTATU_DESC, 
+				SENSORSTATUS_DESC, 
+				WARNTYPE_DESC, 
+				ALERTFLAG_DESC, 
+				PROJECT_ID
+			) VALUES (
+				#id#, 
+				#sendcompany#, 
+				#acceptcompany#, 
+				#operationType#, 
+				#appType#, 
+				#craneno#, 
+				#card#, 
+				#year#, 
+				#mouth#, 
+				#day#, 
+				#hour#, 
+				#minute#, 
+				#second#, 
+				#geocoordinatey#, 
+				#geocoordinatex#, 
+				#height#, 
+				#amplitude#, 
+				#rotary#, 
+				#heavy#, 
+				#windspeed#, 
+				#anglex#, 
+				#angley#, 
+				#safetorque#, 
+				#safeweight#, 
+				#currentrate#, 
+				#reserve#, 
+				#powerstatu#, 
+				#sensorstatus#, 
+				#warntype#, 
+				#alertflag#, 
+				#createTime#, 
+				#powerstatuDesc#, 
+				#sensorstatusDesc#, 
+				#warntypeDesc#, 
+				#alertflagDesc#, 
+				#projectId#
+			)
+		]]>
+	</insert>
+
+	<!-- 新增记录 -->
+	<insert id="insert" parameterClass="tcsmSnapCurrentEntity">
+		<![CDATA[
+			INSERT INTO TCSM_SNAP_CURRENT (
+				ID, 
+				SENDCOMPANY, 
+				ACCEPTCOMPANY, 
+				OPERATION_TYPE, 
+				APP_TYPE, 
+				CRANENO, 
+				CARD, 
+				YEAR, 
+				MOUTH, 
+				DAY, 
+				HOUR, 
+				MINUTE, 
+				SECOND, 
+				GEOCOORDINATEY, 
+				GEOCOORDINATEX, 
+				HEIGHT, 
+				AMPLITUDE, 
+				ROTARY, 
+				HEAVY, 
+				WINDSPEED, 
+				ANGLEX, 
+				ANGLEY, 
+				SAFETORQUE, 
+				SAFEWEIGHT, 
+				CURRENTRATE, 
+				RESERVE, 
+				POWERSTATU, 
+				SENSORSTATUS, 
+				WARNTYPE, 
+				ALERTFLAG, 
+				CREATE_TIME, 
+				POWERSTATU_DESC, 
+				SENSORSTATUS_DESC, 
+				WARNTYPE_DESC, 
+				ALERTFLAG_DESC, 
+				PROJECT_ID
+			) VALUES (
+				#id#, 
+				#sendcompany#, 
+				#acceptcompany#, 
+				#operationType#, 
+				#appType#, 
+				#craneno#, 
+				#card#, 
+				#year#, 
+				#mouth#, 
+				#day#, 
+				#hour#, 
+				#minute#, 
+				#second#, 
+				#geocoordinatey#, 
+				#geocoordinatex#, 
+				#height#, 
+				#amplitude#, 
+				#rotary#, 
+				#heavy#, 
+				#windspeed#, 
+				#anglex#, 
+				#angley#, 
+				#safetorque#, 
+				#safeweight#, 
+				#currentrate#, 
+				#reserve#, 
+				#powerstatu#, 
+				#sensorstatus#, 
+				#warntype#, 
+				#alertflag#, 
+				#createTime#, 
+				#powerstatuDesc#, 
+				#sensorstatusDesc#, 
+				#warntypeDesc#, 
+				#alertflagDesc#, 
+				#projectId#
+			)
+		]]>
+	</insert>
+
+	<!-- 通过ID修改 -->
+	<update id="update" parameterClass="tcsmSnapCurrentEntity">
+		<![CDATA[
+			UPDATE TCSM_SNAP_CURRENT SET
+				SENDCOMPANY = #sendcompany#, 
+				ACCEPTCOMPANY = #acceptcompany#, 
+				OPERATION_TYPE = #operationType#, 
+				APP_TYPE = #appType#, 
+				CRANENO = #craneno#, 
+				CARD = #card#, 
+				YEAR = #year#, 
+				MOUTH = #mouth#, 
+				DAY = #day#, 
+				HOUR = #hour#, 
+				MINUTE = #minute#, 
+				SECOND = #second#, 
+				GEOCOORDINATEY = #geocoordinatey#, 
+				GEOCOORDINATEX = #geocoordinatex#, 
+				HEIGHT = #height#, 
+				AMPLITUDE = #amplitude#, 
+				ROTARY = #rotary#, 
+				HEAVY = #heavy#, 
+				WINDSPEED = #windspeed#, 
+				ANGLEX = #anglex#, 
+				ANGLEY = #angley#, 
+				SAFETORQUE = #safetorque#, 
+				SAFEWEIGHT = #safeweight#, 
+				CURRENTRATE = #currentrate#, 
+				RESERVE = #reserve#, 
+				POWERSTATU = #powerstatu#, 
+				SENSORSTATUS = #sensorstatus#, 
+				WARNTYPE = #warntype#, 
+				ALERTFLAG = #alertflag#, 
+				CREATE_TIME = #createTime#, 
+				POWERSTATU_DESC = #powerstatuDesc#, 
+				SENSORSTATUS_DESC = #sensorstatusDesc#, 
+				WARNTYPE_DESC = #warntypeDesc#, 
+				ALERTFLAG_DESC = #alertflagDesc#, 
+				PROJECT_ID = #projectId#
+			WHERE 
+				ID = #id#
+		]]>
+	</update>
+
+	<!-- 通过ID删除 -->
+	<delete id="delete">
+		<![CDATA[
+			DELETE FROM TCSM_SNAP_CURRENT WHERE
+			ID = #id#
+		]]>
+	</delete>
+
+	<!-- 通过ID列表批量删除 -->
+	<delete id="deleteByIds" parameterClass="java.lang.String">
+		<![CDATA[
+			DELETE FROM TCSM_SNAP_CURRENT WHERE
+			ID IN ($ids$)
+		]]>
+	</delete>
+
+	<!-- 通过ID查询 -->
+	<select id="getById" resultMap="tcsmSnapCurrent">
+		SELECT
+		<include refid="tcsmSnapCurrent.columns" />
+		<![CDATA[
+			FROM TCSM_SNAP_CURRENT 
+			WHERE 
+				ID = #id#
+		]]>
+	</select>
+
+	<!-- 用于查询抽取的公共的条件 -->
+	<sql id="tcsmSnapCurrent.queryParams">
+		<dynamic prepend="WHERE">
+			<isNotNull property="searchFilters">
+				<isNotEmpty prepend="AND"
+					property="searchFilters.id">
+					<![CDATA[
+					ID $searchFilters.id.operation$ #searchFilters.id.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.sendcompany">
+					<![CDATA[
+					SENDCOMPANY $searchFilters.sendcompany.operation$ #searchFilters.sendcompany.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.acceptcompany">
+					<![CDATA[
+					ACCEPTCOMPANY $searchFilters.acceptcompany.operation$ #searchFilters.acceptcompany.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.operationType">
+					<![CDATA[
+					OPERATION_TYPE $searchFilters.operationType.operation$ #searchFilters.operationType.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.appType">
+					<![CDATA[
+					APP_TYPE $searchFilters.appType.operation$ #searchFilters.appType.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.craneno">
+					<![CDATA[
+					CRANENO $searchFilters.craneno.operation$ #searchFilters.craneno.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.card">
+					<![CDATA[
+					CARD $searchFilters.card.operation$ #searchFilters.card.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.year">
+					<![CDATA[
+					YEAR $searchFilters.year.operation$ #searchFilters.year.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.mouth">
+					<![CDATA[
+					MOUTH $searchFilters.mouth.operation$ #searchFilters.mouth.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.day">
+					<![CDATA[
+					DAY $searchFilters.day.operation$ #searchFilters.day.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.hour">
+					<![CDATA[
+					HOUR $searchFilters.hour.operation$ #searchFilters.hour.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.minute">
+					<![CDATA[
+					MINUTE $searchFilters.minute.operation$ #searchFilters.minute.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.second">
+					<![CDATA[
+					SECOND $searchFilters.second.operation$ #searchFilters.second.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.geocoordinatey">
+					<![CDATA[
+					GEOCOORDINATEY $searchFilters.geocoordinatey.operation$ #searchFilters.geocoordinatey.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.geocoordinatex">
+					<![CDATA[
+					GEOCOORDINATEX $searchFilters.geocoordinatex.operation$ #searchFilters.geocoordinatex.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.height">
+					<![CDATA[
+					HEIGHT $searchFilters.height.operation$ #searchFilters.height.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.amplitude">
+					<![CDATA[
+					AMPLITUDE $searchFilters.amplitude.operation$ #searchFilters.amplitude.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.rotary">
+					<![CDATA[
+					ROTARY $searchFilters.rotary.operation$ #searchFilters.rotary.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.heavy">
+					<![CDATA[
+					HEAVY $searchFilters.heavy.operation$ #searchFilters.heavy.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.windspeed">
+					<![CDATA[
+					WINDSPEED $searchFilters.windspeed.operation$ #searchFilters.windspeed.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.anglex">
+					<![CDATA[
+					ANGLEX $searchFilters.anglex.operation$ #searchFilters.anglex.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.angley">
+					<![CDATA[
+					ANGLEY $searchFilters.angley.operation$ #searchFilters.angley.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.safetorque">
+					<![CDATA[
+					SAFETORQUE $searchFilters.safetorque.operation$ #searchFilters.safetorque.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.safeweight">
+					<![CDATA[
+					SAFEWEIGHT $searchFilters.safeweight.operation$ #searchFilters.safeweight.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.currentrate">
+					<![CDATA[
+					CURRENTRATE $searchFilters.currentrate.operation$ #searchFilters.currentrate.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.reserve">
+					<![CDATA[
+					RESERVE $searchFilters.reserve.operation$ #searchFilters.reserve.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.powerstatu">
+					<![CDATA[
+					POWERSTATU $searchFilters.powerstatu.operation$ #searchFilters.powerstatu.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.sensorstatus">
+					<![CDATA[
+					SENSORSTATUS $searchFilters.sensorstatus.operation$ #searchFilters.sensorstatus.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.warntype">
+					<![CDATA[
+					WARNTYPE $searchFilters.warntype.operation$ #searchFilters.warntype.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.alertflag">
+					<![CDATA[
+					ALERTFLAG $searchFilters.alertflag.operation$ #searchFilters.alertflag.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.createTime">
+					<![CDATA[
+					CREATE_TIME $searchFilters.createTime.operation$ TO_DATE(#searchFilters.createTime.value#, 'yyyy-mm-dd hh24:mi:ss')
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.beginCreateTime">
+					<![CDATA[
+					CREATE_TIME $searchFilters.beginCreateTime.operation$ TO_DATE(#searchFilters.beginCreateTime.value#, 'yyyy-mm-dd hh24:mi:ss')
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.endCreateTime">
+					<![CDATA[
+					CREATE_TIME $searchFilters.endCreateTime.operation$ TO_DATE(#searchFilters.endCreateTime.value#, 'yyyy-mm-dd hh24:mi:ss')
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.powerstatuDesc">
+					<![CDATA[
+					POWERSTATU_DESC $searchFilters.powerstatuDesc.operation$ #searchFilters.powerstatuDesc.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.sensorstatusDesc">
+					<![CDATA[
+					SENSORSTATUS_DESC $searchFilters.sensorstatusDesc.operation$ #searchFilters.sensorstatusDesc.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.warntypeDesc">
+					<![CDATA[
+					WARNTYPE_DESC $searchFilters.warntypeDesc.operation$ #searchFilters.warntypeDesc.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.alertflagDesc">
+					<![CDATA[
+					ALERTFLAG_DESC $searchFilters.alertflagDesc.operation$ #searchFilters.alertflagDesc.value#
+					]]>
+				</isNotEmpty>
+				<isNotEmpty prepend="AND"
+					property="searchFilters.projectId">
+					<![CDATA[
+					PROJECT_ID $searchFilters.projectId.operation$ #searchFilters.projectId.value#
+					]]>
+				</isNotEmpty>
+			</isNotNull>
+		</dynamic>
+		<dynamic prepend="ORDER BY">
+			<isNotNull property="orderColumn">
+				<![CDATA[
+				$orderColumn$
+				]]>
+				<isNotNull property="orderMode">
+					$orderMode$
+				</isNotNull>
+			</isNotNull>
+		</dynamic>
+	</sql>
+
+	<!-- 为分页查询符合条件的记录数 -->
+	<select id="queryByPage_count" resultClass="int">
+		SELECT count(*) FROM TCSM_SNAP_CURRENT
+		<include refid="tcsmSnapCurrent.queryParams" />
+	</select>
+
+	<!-- 分页查询指定页记录 -->
+	<select id="queryByPage" resultMap="tcsmSnapCurrent">
+		SELECT * FROM (
+		SELECT ROWNUM RN, T.* FROM (
+		SELECT
+		<include refid="tcsmSnapCurrent.columns" />
+		<![CDATA[
+			FROM TCSM_SNAP_CURRENT 
+		]]>
+		<include refid="tcsmSnapCurrent.queryParams" />
+		) T ) WHERE
+		<![CDATA[
+			RN > $paging.startRecord$ AND RN <= $paging.startRecord$ + $paging.pageSize$
+		]]>
+	</select>
+
+	<!-- 查询所有记录 -->
+	<select id="queryAll" resultMap="tcsmSnapCurrent">
+		SELECT
+		<include refid="tcsmSnapCurrent.columns" />
+		<![CDATA[
+			FROM TCSM_SNAP_CURRENT
+		]]>
+		<include refid="tcsmSnapCurrent.queryParams" />
+	</select>
+</sqlMap>
